@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(colors.variables.css);
+
+body {
+  background-color: var(--primaryBackground);
+  color: var(--primaryText);
+}
+
+.c-LoginSignup {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c-LoginSignup__form {
+  height: 50%;
+  width: 50%;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+}
+.c-LoginSignup__switcher {
+  margin: 20px 0;
+}
+.c-LoginSignup__switcher,
+.c-LoginSignup__switcher input {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+}
+.c-LoginSignup__switcher input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #000;
+  outline: 0;
+}
+.c-LoginSignup__switcher input:after,
+.c-LoginSignup__switcher input:before {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-weight: 800;
+}
+.c-LoginSignup__switcher input:before {
+  content: "LOGIN";
+  left: 33px;
+}
+.c-LoginSignup__switcher input:after {
+  content: "SIGNUP";
+  right: 29px;
+}
+.c-LoginSignup__switcher label {
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  border-radius: 20px;
+}
+.c-LoginSignup__switcherContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.c-LoginSignup .c-LoginSignup__switcher input {
+  transition: 0.25s -0.1s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:checked {
+  background-color: #000;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:checked:before {
+  color: grey;
+  transition: color 0.5s 0.2s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:checked:after {
+  color: #000;
+  transition: color 0.5s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:checked + label {
+  left: 100px;
+  right: 10px;
+  background: #fff;
+  transition: left 0.4s 0.2s, right 0.5s, color 0.35s -0.1s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:not(:checked) {
+  background: #000;
+  transition: color 0.5s -0.1s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:not(:checked):before {
+  color: #000;
+  transition: color 0.5s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:not(:checked):after {
+  color: grey;
+  transition: color 0.5s 0.2s;
+}
+.c-LoginSignup .c-LoginSignup__switcher input:not(:checked) + label {
+  left: 10px;
+  right: 100px;
+  background: #fff;
+  transition: left 0.5s, right 0.4s 0.2s;
+}
