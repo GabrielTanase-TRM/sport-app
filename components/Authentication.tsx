@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Endpoint } from "../services/services.enum";
+import { Endpoint } from "../Services/services.enum";
 import { TextInput } from "./TextInput/TextInput";
 import EyeOn from "../public/assets/icons/eye.svg";
 import EyeOff from "../public/assets/icons/eye-off.svg";
 import Locked from "../public/assets/icons/locked.svg";
 import Mail from "../public/assets/icons/mail.svg";
 import { useRouter } from "next/router";
-import { postAuth } from "../services/auth";
-import { validation } from "../shared/regExValidation";
+import { postAuth } from "../Services/user";
+import { validation } from "../Shared/regExValidation";
+import SwitchButton from "./SwitchButton";
 
 const Authentication = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -25,11 +26,14 @@ const Authentication = () => {
     getValues,
     trigger,
     clearErrors,
+    register,
     formState: { errors, isValid },
   } = useForm({ mode: "all" });
 
-  const checkboxHandler = (e) => {
-    setIsLogin(e.target.checked);
+  const checkboxHandler = (value) => {
+    if (isLogin != value) {
+      setIsLogin(value);
+    }
   };
 
   const submitForm = (data, event) => {
@@ -39,7 +43,7 @@ const Authentication = () => {
     bodyData.email = data.email;
     bodyData.password = data.password;
     if (typeOfRequest === Endpoint.Signup) {
-      bodyData.isTrainer = data.isTrainer;
+      bodyData.isTrainer = Boolean(data.isTrainer);
       bodyData.firstName = data.firstName;
       bodyData.lastName = data.lastName;
     }
@@ -66,7 +70,7 @@ const Authentication = () => {
         setLoading(false);
       });
   };
-  const formHasErrors = (errors) => (trigger(), console.log(errors));
+  const formHasErrors = () => trigger();
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   // login:: Password rules-> one uppercase, one number
@@ -77,18 +81,12 @@ const Authentication = () => {
       ) : (
         <div className="w-full h-full flex justify-center items-center">
           <div className="h-5/6">
-            <div className="c-LoginSignup__switcherContainer">
-              <span className="c-LoginSignup__switcher c-LoginSignup__switcher-1">
-                <input
-                  type="checkbox"
-                  id="switcher"
-                  name="switcher"
-                  checked={isLogin}
-                  onChange={checkboxHandler}
-                />
-                <label htmlFor="switcher" />
-              </span>
-            </div>
+            <SwitchButton
+              value={isLogin}
+              onChange={checkboxHandler}
+              leftContent={"LOGIN"}
+              rightContent={"SIGNUP"}
+            />
             {isLogin ? (
               <form
                 className="w-full"
@@ -117,7 +115,7 @@ const Authentication = () => {
                         ? true
                         : "Please use letters only.",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="firstName"
                       type="text"
@@ -156,7 +154,7 @@ const Authentication = () => {
                         ? true
                         : "Please use letters only.",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="lastName"
                       type="text"
@@ -186,7 +184,7 @@ const Authentication = () => {
                         ? true
                         : "Invalid email.",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="text"
                       type="text"
@@ -222,7 +220,7 @@ const Authentication = () => {
                         ? true
                         : "Password should have one uppercase and one number.",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="password"
                       type="password"
@@ -260,7 +258,7 @@ const Authentication = () => {
                         ? true
                         : "Password not equal",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="rePassword"
                       type="password"
@@ -280,14 +278,16 @@ const Authentication = () => {
                   control={control}
                   name="isTrainer"
                   defaultValue=""
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <div className="flex">
                       <p> Are you a Trainer?</p>
                       <input
                         id="isTrainer"
                         type="checkbox"
+                        defaultValue="false"
                         onChange={onChange}
                         value={value}
+                        {...register}
                       />
                     </div>
                   )}
@@ -326,7 +326,7 @@ const Authentication = () => {
                         ? true
                         : "Invalid email.",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="email"
                       type="email"
@@ -363,7 +363,7 @@ const Authentication = () => {
                         ? true
                         : "Password should have one uppercase and one number.",
                   }}
-                  render={({ field: { onChange, onBlur, ref, value } }) => (
+                  render={({ field: { onChange, value } }) => (
                     <TextInput
                       inputId="password"
                       type={showPassword ? "text" : "password"}

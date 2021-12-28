@@ -55,6 +55,7 @@ export const TextInput: React.FC<TextInputProps> = ({
             placeholder={placeHolder}
             onChange={onChange}
             value={value}
+            required={required}
           />
           {hasError && (
             <div

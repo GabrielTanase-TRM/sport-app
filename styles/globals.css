@@ -1,94 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url(colors.variables.css);
 
+@layer components {
+  .navi-icon {
+    @apply relative flex justify-center items-center  h-8 w-8
+    hover:bg-gray-800 hover:text-turquoise mt-2.5 rounded-3xl bg-gray-400 text-white
+    hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer mx-auto shadow-lightMDAllSides dark:shadow-darkMDAllSides;
+  }
+  .tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-10 rounded-md shadow-md text-white 
+    bg-gray-800 text-xs font-bold transition-all duration-200 scale-0 origin-left;
+  }
+}
+
 body {
-  background-color: var(--primaryBackground);
+  background-color: #f1f1f1;
   color: var(--primaryText);
 }
 
-.c-LoginSignup__switcher {
-  margin: 20px 0;
-}
-.c-LoginSignup__switcher,
-.c-LoginSignup__switcher input {
-  position: relative;
-  width: 200px;
-  height: 50px;
-  border-radius: 25px;
-}
-.c-LoginSignup__switcher input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #000;
-  outline: 0;
-}
-.c-LoginSignup__switcher input:after,
-.c-LoginSignup__switcher input:before {
-  z-index: 2;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  font-weight: 800;
-}
-.c-LoginSignup__switcher input:before {
-  content: "LOGIN";
-  left: 33px;
-}
-.c-LoginSignup__switcher input:after {
-  content: "SIGNUP";
-  right: 29px;
-}
-.c-LoginSignup__switcher label {
-  z-index: 1;
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  border-radius: 20px;
-}
-.c-LoginSignup__switcherContainer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.c-LoginSignup__switcher input {
-  transition: 0.25s -0.1s;
-}
-.c-LoginSignup__switcher input:checked {
-  background-color: #000;
-}
-.c-LoginSignup__switcher input:checked:before {
-  color: grey;
-  transition: color 0.5s 0.2s;
-}
-.c-LoginSignup__switcher input:checked:after {
-  color: #000;
-  transition: color 0.5s;
-}
-.c-LoginSignup__switcher input:checked + label {
-  left: 100px;
-  right: 10px;
-  background: #fff;
-  transition: left 0.4s 0.2s, right 0.5s, color 0.35s -0.1s;
-}
-.c-LoginSignup__switcher input:not(:checked) {
-  background: #000;
-  transition: color 0.5s -0.1s;
-}
-.c-LoginSignup__switcher input:not(:checked):before {
-  color: #000;
-  transition: color 0.5s;
-}
-.c-LoginSignup__switcher input:not(:checked):after {
-  color: grey;
-  transition: color 0.5s 0.2s;
-}
-.c-LoginSignup__switcher input:not(:checked) + label {
-  left: 10px;
-  right: 100px;
-  background: #fff;
-  transition: left 0.5s, right 0.4s 0.2s;
+input[type="file"] {
+  display: none;
 }

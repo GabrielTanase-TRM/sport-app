@@ -8,4 +8,13 @@ module.exports = {
 
     return config;
   },
+  i18n: {
+    locales: ["en", "ro"],
+    defaultLocale: "en",
+    localeDetection: true,
+  },
+  images: {
+    domains: ["cdn.pixabay.com", "firebasestorage.googleapis.com"],
+    minimumCacheTTL: 180,
+  },
 };

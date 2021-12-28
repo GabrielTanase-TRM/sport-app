@@ -1,3 +1,4 @@
+export {};
 // import type { Account } from "$server/types";
 // import { z } from "zod";
 // import cuid from "cuid";
@@ -12,13 +13,6 @@
 // import mailer from "$server/services/mailer";
 // import errors from "$server/errors";
 // import CONFIG from "$server/config";
-
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
-import { verify } from "jsonwebtoken";
-import { PrismaClient } from "@prisma/client";
-import { NextApiRequestAuthenticated } from "../../shared/shared.interface";
-require("dotenv").config({ path: "../../.env" });
-import { User } from "../../shared/shared.interface";
 
 // http.addHook("onRoute", (route) => {
 //   route.preValidation = async (request) => {
@@ -273,24 +267,3 @@ import { User } from "../../shared/shared.interface";
 //     else throw errors.notAuthenticated();
 //   },
 // });
-export const prisma = new PrismaClient();
-
-export const authorization =
-  (fn: NextApiHandler) => async (req: NextApiRequest, res: NextApiResponse) => {
-    verify(
-      req.cookies.authorization,
-      process.env.JWT_KEY,
-      async (err, decoded) => {
-        if (!err && decoded) {
-          const reqAuth = { ...req, decoded } as NextApiRequestAuthenticated;
-          return await fn(reqAuth, res);
-        }
-
-        res.status(401).json({
-          message: "You have no authorization for this request.",
-        });
-        res.writeHead(302, { Location: "http://localhost:3000/login" });
-        res.end();
-      }
-    );
-  };

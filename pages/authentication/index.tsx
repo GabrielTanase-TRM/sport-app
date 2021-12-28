@@ -1,5 +1,5 @@
 import React from "react";
-import Authentication from "../../components";
+import Authentication from "../../Components";
 import Link from "next/link";
 
 const Auth = () => {

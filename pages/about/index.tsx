@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Paths } from "../../shared/paths.const";
+import { Paths } from "../../Shared/paths.const";
 
 const About = () => {
   return (
