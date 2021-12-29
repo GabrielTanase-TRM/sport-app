@@ -30,11 +30,13 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
   return (
     <div
       className={`border-r-2 ${
-        isActive ? "border-turquoise" : "border-whiteBackground"
+        isActive
+          ? "border-turquoise"
+          : "border-lightBackground dark:border-darkBackground"
       } px-3 ${containerClassName}`}
     >
       <div
-        className={`navi-icon group ${iconClassName} ${
+        className={`navi-icon lg:group ${iconClassName} ${
           isActive && "bg-gray-800 text-turquoise"
         }`}
       >
@@ -66,7 +68,7 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
           <Icon size={size} />
         )}
         {tooltip && (
-          <span className="tooltip group-hover:scale-100">{tooltip}</span>
+          <span className="tooltip lg:group-hover:scale-100">{tooltip}</span>
         )}
       </div>
     </div>

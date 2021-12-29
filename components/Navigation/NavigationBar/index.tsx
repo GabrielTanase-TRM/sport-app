@@ -9,6 +9,7 @@ import { Paths } from "../../../Shared/paths.const";
 
 import NavigationIcon from "../NavigationIcon";
 import { NavigationIconWrapper } from "../NavigationIconWrapper";
+import HamburgerButton from "../../HamburgerButton";
 
 const {
   BsSuitHeartFill,
@@ -22,6 +23,7 @@ const {
 
 export const Navigation = () => {
   const [active, setActive] = useState("");
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
   const router = useRouter();
 
@@ -34,16 +36,25 @@ export const Navigation = () => {
     setActive(router.route);
   }, [router]);
 
-  const iconSize = 18;
+  const iconSize = "55%";
   const iconProps = {
     size: iconSize,
     active: active,
   };
 
+  const toggleHamburger = () => setIsHamburgerOpen(!isHamburgerOpen);
+
   return (
-    <div className="h-full py-10 flex flex-col items-center justify-between shadow-xl border-r border-divider dark:bg-red-400">
-      <div>
-        <div className="mb-8">LOGO</div>
+    <div
+      className={`fixed transition-translate duration-500 ease-out -translate-x-full z-50 h-full pb-10 lg:py-10 flex flex-col items-center justify-between shadow-xl border-r border-divider dark:border-gray-800 ${
+        isHamburgerOpen && "translate-x-0"
+      }`}
+    >
+      <HamburgerButton onClick={toggleHamburger} />
+      <div className="z-10 backgroundColor">
+        <div className="h-20 w-full flex items-center justify-center">
+          <p>LOGO</p>
+        </div>
         <Link href={Paths.Homepage.path} passHref>
           <NavigationIconWrapper>
             <NavigationIcon

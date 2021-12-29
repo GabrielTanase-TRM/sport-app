@@ -56,8 +56,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             <NavigationIcon
               icon={enableDarkMode ? RiSunFill : RiMoonFill}
               size={16}
-              containerClassName="px-1"
-              iconClassName={`w-7 h-7 ${
+              containerClassName="px-1 border-none"
+              iconClassName={`w-7 h-7 mr-0 ${
                 enableDarkMode ? "text-yellow-200" : "text-gray-200"
               }`}
             />
@@ -66,8 +66,8 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             <NavigationIcon
               icon={FiLogOut}
               size={16}
-              containerClassName="px-1"
-              iconClassName={`w-7 h-7`}
+              containerClassName="px-1 border-none"
+              iconClassName={`w-7 h-7 mr-0`}
             />
           </button>
         </div>
@@ -75,7 +75,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           <Wave
             width={"100%"}
             height={"100px"}
-            className="text-whiteBackground"
+            className="text-lightBackground dark:text-darkBackground"
             preserveAspectRatio="none"
           />
         </div>

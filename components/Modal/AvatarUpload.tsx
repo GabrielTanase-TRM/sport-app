@@ -22,7 +22,7 @@ import { setUser } from "../../Redux/Slices/user.slice";
 
 const { IoClose } = icon;
 
-export const Modal: React.FC<ModalProps> = ({
+export const AvatarUploadModal: React.FC<ModalProps> = ({
   id,
   closeModal,
   firstName,
@@ -65,7 +65,7 @@ export const Modal: React.FC<ModalProps> = ({
         onClick={closeModal}
         className="absolute inset-0 bg-overlay w-full h-full"
       />
-      <div className="relative z-10 w-10/12 h-2/6 max-w-xs bg-white rounded-lg shadow-xl flex flex-col justify-between items-center p-4">
+      <div className="relative z-10 w-10/12 h-2/6 max-w-xs backgroundColor rounded-lg dark:shadow-darkMDAllSides shadow-lightMDAllSides flex flex-col justify-between items-center p-4">
         <button onClick={closeModal} className="absolute right-2 top-2">
           <IoClose size={20} className="text-gray-300 hover:text-turquoise" />
         </button>

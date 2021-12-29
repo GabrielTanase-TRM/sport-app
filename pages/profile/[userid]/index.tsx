@@ -6,7 +6,7 @@ import { getUser } from "../../../Redux/selectors";
 import { PagePropsType, User } from "../../../Shared/shared.interface";
 
 import { ProfileHeader } from "../../../Components/Profile";
-import { Modal } from "../../../Components/Modal/AvatarUpload";
+import { AvatarUploadModal } from "../../../Components/Modal/AvatarUpload";
 import { setBadgeNotification } from "../../../Redux/Slices/badgeNotification.slice";
 
 export interface UserProfileProps extends PagePropsType {
@@ -31,9 +31,10 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
   const setIt = () => {
     dispatch(
       setBadgeNotification({
-        message: " Test test Test Test test Test",
+        message:
+          " Test test Test Test test Test test Testtest Testtest Testtest Test",
         isError: false,
-        secondDuration: 999,
+        secondDuration: 3,
       })
     );
   };
@@ -55,7 +56,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
         <div>isOwner?: {isOwner.toString()}</div>
       </div>
       {showModal && (
-        <Modal
+        <AvatarUploadModal
           closeModal={closeModal}
           id={currentUser.id}
           firstName={currentUser.firstName}

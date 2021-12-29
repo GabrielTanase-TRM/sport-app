@@ -50,9 +50,9 @@ const Avatar: React.FC<AvatarProps> = ({
       {openModal && (
         <button
           onClick={openModal}
-          className="absolute bg-white right-1 bottom-2 shadow-md rounded-full p-1 transition-all hover:scale-105"
+          className="absolute backgroundColor right-1 bottom-2 shadow-md rounded-full p-1 transition-all hover:scale-105 text-black dark:text-white"
         >
-          <MdOutlineModeEditOutline size={18} color="black" />
+          <MdOutlineModeEditOutline size={18} />
         </button>
       )}
     </div>

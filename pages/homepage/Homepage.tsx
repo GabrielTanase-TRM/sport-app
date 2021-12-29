@@ -15,9 +15,7 @@ const Homepage = () => {
     <div className="w-screen h-screen flex items-center justify-center flex-col">
       <div>
         <p className="mb-2">{t("welcome")} Homepage</p>
-        <div>
-          <LocalesSwitch />
-        </div>
+        <div>{/* <LocalesSwitch /> */}</div>
       </div>
       {user && <p className="mb-2">Hello {user.email}</p>}
       {user && <p className="mb-2"> Trainer ? {String(user.isTrainer)}</p>}

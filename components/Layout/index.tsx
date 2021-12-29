@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   );
 
   return (
-    <div className="flex w-screen h-screen">
+    <div className="flex w-screen h-screen backgroundColor text-turquoise">
       <Navigation />
       <main className="w-full h-full">
         {!isEmpty(badgeNotifications) && renderBadgesError(badgeNotifications)}

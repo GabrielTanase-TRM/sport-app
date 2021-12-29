@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(colors.variables.css);
-
+/* Custom class for tailwind */
 @layer components {
   .navi-icon {
     @apply relative flex justify-center items-center  h-8 w-8
-    hover:bg-gray-800 hover:text-turquoise mt-2.5 rounded-3xl bg-gray-400 text-white
-    hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer mx-auto shadow-lightMDAllSides dark:shadow-darkMDAllSides;
+    lg:hover:bg-gray-800 lg:hover:text-turquoise mt-5 mr-24 rounded-3xl bg-gray-400 dark:bg-darkSecondaryBackground text-white dark:text-turquoise
+    hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer lg:mx-auto shadow-lightMDAllSides dark:shadow-darkMDAllSides;
   }
   .tooltip {
-    @apply absolute w-auto p-2 m-2 min-w-max left-10 rounded-md shadow-md text-white 
-    bg-gray-800 text-xs font-bold transition-all duration-200 scale-0 origin-left;
+    @apply absolute lg:w-auto lg:p-2 lg:m-2 lg:min-w-max left-12 lg:left-10 lg:rounded-md lg:shadow-md text-turquoise lg:text-white 
+    lg:bg-gray-800 text-xs font-bold lg:transition-all lg:duration-200 lg:scale-0 lg:origin-left;
+  }
+  .backgroundColor {
+    @apply bg-lightBackground dark:bg-darkBackground;
   }
 }
 
@@ -20,7 +22,53 @@ body {
   background-color: #f1f1f1;
   color: var(--primaryText);
 }
+.dark {
+  background-color: #0d1b2a;
+}
 
 input[type="file"] {
   display: none;
+}
+
+/* Hamburger button animation */
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill: none;
+  transition: stroke-dasharray 500ms, stroke-dashoffset 500ms;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.ham3 .top {
+  stroke-dasharray: 40 130;
+}
+.ham3 .middle {
+  stroke-dasharray: 40 140;
+}
+.ham3 .bottom {
+  stroke-dasharray: 40 205;
+}
+.ham3.active .top {
+  stroke-dasharray: 75 130;
+  stroke-dashoffset: -63px;
+}
+.ham3.active .middle {
+  stroke-dashoffset: -102px;
+}
+.ham3.active .bottom {
+  stroke-dasharray: 110 205;
+  stroke-dashoffset: -86px;
 }
