@@ -9,7 +9,7 @@ const jsonSchema: z.ZodSchema<Prisma.InputJsonValue> = z.lazy(() =>
   z.union([z.undefined(), literal, z.array(jsonValue), z.record(jsonValue)])
 );
 
-export type Include = Prisma.SelectAndInclude;
+export type Include = Prisma.HasInclude;
 export type Fields = Prisma.UsersSelect;
 export type Distinct = Prisma.Enumerable<Prisma.UsersScalarFieldEnum>;
 export type Query = Prisma.UsersWhereInput;

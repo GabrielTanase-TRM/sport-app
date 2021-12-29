@@ -15,7 +15,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "require-jsdoc": 0,
-    "react/display-name": [false, { ignoreTranspilerName: true }],
+    "react/display-name": [2, { ignoreTranspilerName: true }],
   },
   settings: {
     react: {
