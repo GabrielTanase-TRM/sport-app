@@ -14,7 +14,7 @@ export const authorization =
           req.decoded = decoded;
           return await fn(req as NextApiRequestAuthenticated, res);
         }
-        // res.writeHead(302, { Location: "http://localhost:3000/login" });
+        // res.writeHead(302, { Location: "/login" });
         return res.status(401).json({
           message: "You have no authorization for this request.",
         });

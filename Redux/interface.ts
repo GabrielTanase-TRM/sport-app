@@ -12,3 +12,16 @@ export interface AppRootStore {
   user: User;
   badgeNotifications: Array<BadgeNotification>;
 }
+
+export interface User {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  disabled: boolean;
+  isTrainer: boolean;
+  deleted: boolean;
+  avatar: string;
+  testimonials: string;
+}
