@@ -11,6 +11,7 @@ import { Navigation } from "../Navigation";
 const Layout = ({ children }) => {
   const badgeNotifications = useSelector(getBadgeNotifications);
   const store = useSelector(getStore);
+  console.log(store);
 
   const renderBadgesError = (badgesError: Array<BadgeNotification>) => (
     <div className="flex flex-col items-end fixed top-10 right-3 z-50 max-w-3/4">

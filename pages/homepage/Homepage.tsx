@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import fetch from "isomorphic-fetch";
-import { isEmpty } from "lodash";
-import { NextPageContext } from "next";
+import React from "react";
+// import fetch from "isomorphic-fetch";
+// import { isEmpty } from "lodash";
+// import { NextPageContext } from "next";
 import { t } from "../../Locales/locales.utils";
-import LocalesSwitch from "../../Components/LocalesSwitch";
+// import LocalesSwitch from "../../Components/LocalesSwitch";
 import { useSelector } from "react-redux";
 import { getIsLoggedIn, getUser } from "../../Redux/selectors";
 

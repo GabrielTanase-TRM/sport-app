@@ -3,7 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "google", "prettier"],
+  extends: [
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended",
+    "google",
+    "prettier",
+    "next",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -15,7 +21,9 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "require-jsdoc": 0,
-    "react/display-name": [2, { ignoreTranspilerName: true }],
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": ["off", { ignoreTranspilerName: true }],
+    "no-unused-vars": ["off"],
   },
   settings: {
     react: {

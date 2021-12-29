@@ -1,4 +1,4 @@
-import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler, NextApiResponse } from "next";
 import { verify } from "jsonwebtoken";
 import { NextApiRequestAuthenticated } from "../../Shared/shared.interface";
 require("dotenv").config({ path: "../../.env" });
