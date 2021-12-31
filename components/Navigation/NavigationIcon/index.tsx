@@ -29,14 +29,14 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
 
   return (
     <div
-      className={`border-r-2 ${
+      className={`border-r-2 ${containerClassName} ${
         isActive
           ? "border-turquoise"
           : "border-lightBackground dark:border-darkBackground"
-      } px-3 ${containerClassName}`}
+      } px-3`}
     >
       <div
-        className={`navi-icon lg:group ${iconClassName} ${
+        className={`${iconClassName} navi-icon lg:group ${
           isActive && "bg-gray-800 text-turquoise"
         }`}
       >

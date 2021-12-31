@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { clearUser } from "../../../Redux/Slices/user.slice";
 import { ProfileHeaderProps } from "../Profile.interface";
 import { setIsLoggedIn } from "../../../Redux/Slices/isLoggedIn.slice";
 
-import { useDarkMode } from "../../../Shared/Hooks/useDarkMode";
-
+import { useTheme } from "next-themes";
 import NavigationIcon from "../../Navigation/NavigationIcon";
 import Avatar from "../../Avatar";
 
@@ -27,10 +26,19 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   openModal,
 }) => {
   const dispatch = useDispatch();
-  const [enableDarkMode, setEnableDarkMode] = useDarkMode();
-  const toggleDarkMode = () => setEnableDarkMode(!enableDarkMode);
   const router = useRouter();
 
+  // const [isMounted, setIsMounted] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setIsDarkTheme(theme === "light" ? false : true);
+  }, [theme]);
+
+  const toggleDarkMode = () => {
+    setTheme(isDarkTheme ? "light" : "dark");
+  };
   const logoutHandler = () =>
     logout().then((res) => {
       if (res.status === 200) {
@@ -46,7 +54,6 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         );
       }
     });
-
   return (
     <div className="w-full overflow-hidden">
       <div className="relative min-h-240px h-1/5 w-full bg-gradient-to-b from-white to-turquoise flex items-center px-4">
@@ -54,11 +61,11 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         <div className="absolute right-4 top-2 flex">
           <button className="block w-full" onClick={toggleDarkMode}>
             <NavigationIcon
-              icon={enableDarkMode ? RiSunFill : RiMoonFill}
+              icon={isDarkTheme ? RiSunFill : RiMoonFill}
               size={16}
               containerClassName="px-1 border-none"
               iconClassName={`w-7 h-7 mr-0 ${
-                enableDarkMode ? "text-yellow-200" : "text-gray-200"
+                isDarkTheme ? "dark:text-yellow-200" : "text-gray-300"
               }`}
             />
           </button>

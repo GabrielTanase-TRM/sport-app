@@ -46,7 +46,7 @@ export const Navigation = () => {
 
   return (
     <div
-      className={`fixed transition-translate duration-500 ease-out -translate-x-full z-50 h-full pb-10 lg:py-10 flex flex-col items-center justify-between shadow-xl border-r border-divider dark:border-gray-800 ${
+      className={`fixed backgroundColor transition-translate duration-500 ease-out -translate-x-full z-50 h-full pb-10 lg:py-10 flex flex-col items-center justify-between shadow-xl border-r border-divider dark:border-gray-800 ${
         isHamburgerOpen && "translate-x-0"
       }`}
     >

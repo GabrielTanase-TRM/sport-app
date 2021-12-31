@@ -18,14 +18,6 @@
   }
 }
 
-body {
-  background-color: #f1f1f1;
-  color: var(--primaryText);
-}
-.dark {
-  background-color: #0d1b2a;
-}
-
 input[type="file"] {
   display: none;
 }

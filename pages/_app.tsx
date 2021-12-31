@@ -1,8 +1,11 @@
 import "../styles/globals.css";
 import React from "react";
+
 import { Provider } from "react-redux";
 import App, { AppContext } from "next/app";
 import { initializeStore } from "../Redux/";
+
+import { ThemeProvider } from "next-themes";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -17,9 +20,11 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={reduxStore}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider defaultTheme="system" attribute="class">
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
       </Provider>
     </QueryClientProvider>
   );
@@ -33,7 +38,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const reduxStore = initializeStore({});
   const cookie = appContext.ctx.req?.headers.cookie;
 
-  const request = await fetch("http://localhost:3000/api/user", {
+  const request = await fetch(`${process.env.BASE_URL}api/user`, {
     headers: {
       cookie: cookie!,
     },

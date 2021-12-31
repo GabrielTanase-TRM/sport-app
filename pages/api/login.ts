@@ -4,7 +4,6 @@ import { compare } from "bcrypt";
 import { isEmpty } from "lodash";
 import { sign } from "jsonwebtoken";
 import cookie from "cookie";
-require("dotenv").config({ path: "../../.env" });
 
 export const Login = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
