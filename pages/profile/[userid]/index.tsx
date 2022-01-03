@@ -5,8 +5,8 @@ import { getUser } from "../../../redux/selectors";
 
 import { PagePropsType, User } from "../../../shared/shared.interface";
 
-import { ProfileHeader } from "../../../Components/Profile";
-import { AvatarUploadModal } from "../../../Components/Modal/AvatarUpload";
+import { ProfileHeader } from "../../../components/Profile";
+import { AvatarUploadModal } from "../../../components/Modal/AvatarUpload";
 import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
 
 export interface UserProfileProps extends PagePropsType {

@@ -9,7 +9,7 @@ import { ThemeProvider } from "next-themes";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import Layout from "../Components/Layout";
+import Layout from "../components/Layout";
 import { MyAppProps } from "../shared/shared.interface";
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
