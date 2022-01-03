@@ -8,7 +8,6 @@ import { PagePropsType, User } from "../../../shared/shared.interface";
 import { ProfileHeader } from "../../../Components/Profile";
 import { AvatarUploadModal } from "../../../Components/Modal/AvatarUpload";
 import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
-import { BASE_URL } from "../../../services/service.const";
 
 export interface UserProfileProps extends PagePropsType {
   currentUser: User;
