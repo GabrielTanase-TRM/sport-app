@@ -11,6 +11,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import Layout from "../components/Layout";
 import { MyAppProps } from "../shared/shared.interface";
+import { BASE_URL } from "../services/service.const";
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
   const { initialReduxState } = pageProps;
@@ -38,7 +39,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   const reduxStore = initializeStore({});
   const cookie = appContext.ctx.req?.headers.cookie;
 
-  const request = await fetch(`${process.env.BASE_URL}api/user`, {
+  const request = await fetch(`${BASE_URL}api/user`, {
     headers: {
       cookie: cookie!,
     },

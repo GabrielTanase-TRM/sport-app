@@ -8,6 +8,7 @@ import { PagePropsType, User } from "../../../shared/shared.interface";
 import { ProfileHeader } from "../../../components/Profile";
 import { AvatarUploadModal } from "../../../components/Modal/AvatarUpload";
 import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
+import { BASE_URL } from "../../../services/service.const";
 
 export interface UserProfileProps extends PagePropsType {
   currentUser: User;
@@ -72,15 +73,12 @@ export const getServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
   const cookie = context.req?.headers.cookie;
-  // let url = context.req.protocol + "://" + req.get("host") + req.originalUrl;
-  const request = await fetch(
-    `${process.env.BASE_URL}api/user/${context.query.userid}`,
-    {
-      headers: {
-        cookie: cookie!,
-      },
-    }
-  );
+
+  const request = await fetch(`${BASE_URL}api/user/${context.query.userid}`, {
+    headers: {
+      cookie: cookie!,
+    },
+  });
   if (request.status === 401 && !context.req) {
     // Unauthenticated on client side, manipulate router
     return {
@@ -91,7 +89,7 @@ export const getServerSideProps = async (
   if (request.status === 401 && context.req) {
     // Unauthenticated on server side, manipulate context res
     context.res.writeHead(302, {
-      Location: `${process.env.BASE_URL}authentication`,
+      Location: `${BASE_URL}authentication`,
     });
     return {
       user: null,
