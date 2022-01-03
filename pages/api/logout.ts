@@ -1,7 +1,7 @@
 import { NextApiResponse } from "next";
 import cookie from "cookie";
 import { authorization } from "./middlewares";
-import { NextApiRequestAuthenticated } from "../../Shared/shared.interface";
+import { NextApiRequestAuthenticated } from "../../shared/shared.interface";
 
 export const Logout = async (
   req: NextApiRequestAuthenticated,

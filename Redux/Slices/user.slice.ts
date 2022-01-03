@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../Shared/shared.interface";
-import { generateHexColor } from "../../Shared/utils";
+import { User } from "../../shared/shared.interface";
+import { generateHexColor } from "../../shared/utils";
 
 const initialState: User = {
   id: "",

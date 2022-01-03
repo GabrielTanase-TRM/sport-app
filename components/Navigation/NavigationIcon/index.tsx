@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { t } from "../../../Locales/locales.utils";
 import { NaviIconProps } from "../Navigation.interface";
-import { validation } from "../../../Shared/regExValidation";
-import { IMAGE_PLACEHOLDER_BASE64 } from "../../../Shared/shared.const";
+import { validation } from "../../../shared/regExValidation";
+import { IMAGE_PLACEHOLDER_BASE64 } from "../../../shared/shared.const";
 
 const NavigationIcon: React.FC<NaviIconProps> = ({
   icon,

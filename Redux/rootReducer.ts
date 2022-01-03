@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import badgeNotificationsReducer from "./Slices/badgeNotification.slice";
-import isLoggedInReducer from "./Slices/isLoggedIn.slice";
-import userReducer from "./Slices/user.slice";
+import badgeNotificationsReducer from "./slices/badgeNotification.slice";
+import isLoggedInReducer from "./slices/isLoggedIn.slice";
+import userReducer from "./slices/user.slice";
 
 const rootReducer = combineReducers({
   user: userReducer,

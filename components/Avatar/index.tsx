@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 import { t } from "../../Locales/locales.utils";
-import { icon } from "../../Shared/icons";
-import { validation } from "../../Shared/regExValidation";
-import { IMAGE_PLACEHOLDER_BASE64 } from "../../Shared/shared.const";
+import { icon } from "../../shared/icons";
+import { validation } from "../../shared/regExValidation";
+import { IMAGE_PLACEHOLDER_BASE64 } from "../../shared/shared.const";
 
 interface AvatarProps {
   avatar: string;

@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../prisma/prisma";
-import { validation } from "../../Shared/regExValidation";
+import { validation } from "../../shared/regExValidation";
 import { hash } from "bcrypt";
 import { isEmpty, isNil } from "lodash";
 import { schema } from "../../schemas/users";
-import { generateHexColor } from "../../Shared/utils";
+import { generateHexColor } from "../../shared/utils";
 
 export const Signup = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {

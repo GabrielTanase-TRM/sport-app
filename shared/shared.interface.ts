@@ -1,5 +1,5 @@
 import { NextApiRequest } from "next";
-import { AppRootStore } from "../Redux/interface";
+import { AppRootStore } from "../redux/interface";
 
 declare global {
   namespace React {

@@ -1,4 +1,4 @@
-import { User } from "../Shared/shared.interface";
+import { User } from "../shared/shared.interface";
 
 export interface BadgeNotification {
   id?: number;

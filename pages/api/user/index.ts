@@ -2,7 +2,7 @@ import { NextApiResponse } from "next";
 import { isEmpty } from "lodash";
 import { authorization } from "../middlewares";
 import prisma from "../../../prisma/prisma";
-import { NextApiRequestAuthenticated } from "../../../Shared/shared.interface";
+import { NextApiRequestAuthenticated } from "../../../shared/shared.interface";
 require("dotenv").config({ path: "../../.env" });
 
 export const GetCurrentUser = async (

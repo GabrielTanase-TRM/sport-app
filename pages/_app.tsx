@@ -3,14 +3,14 @@ import React from "react";
 
 import { Provider } from "react-redux";
 import App, { AppContext } from "next/app";
-import { initializeStore } from "../Redux/";
+import { initializeStore } from "../redux";
 
 import { ThemeProvider } from "next-themes";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import Layout from "../Components/Layout";
-import { MyAppProps } from "../Shared/shared.interface";
+import { MyAppProps } from "../shared/shared.interface";
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
   const { initialReduxState } = pageProps;

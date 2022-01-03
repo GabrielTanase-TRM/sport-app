@@ -1,6 +1,6 @@
 import { NextApiHandler, NextApiResponse } from "next";
 import { verify } from "jsonwebtoken";
-import { NextApiRequestAuthenticated } from "../../Shared/shared.interface";
+import { NextApiRequestAuthenticated } from "../../shared/shared.interface";
 
 export const authorization =
   (fn: NextApiHandler) =>

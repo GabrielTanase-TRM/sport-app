@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Endpoint } from "../Services/services.enum";
+import { Endpoint } from "../services/services.enum";
 import { TextInput } from "./TextInput/TextInput";
 import EyeOn from "../public/assets/icons/eye.svg";
 import EyeOff from "../public/assets/icons/eye-off.svg";
 import Locked from "../public/assets/icons/locked.svg";
 import Mail from "../public/assets/icons/mail.svg";
 import { useRouter } from "next/router";
-import { postAuth } from "../Services/user";
-import { validation } from "../Shared/regExValidation";
+import { postAuth } from "../services/user";
+import { validation } from "../shared/regExValidation";
 import SwitchButton from "./SwitchButton";
 
 const Authentication = () => {

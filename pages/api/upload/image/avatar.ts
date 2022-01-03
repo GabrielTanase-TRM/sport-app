@@ -3,7 +3,7 @@ import nextConnect from "next-connect";
 require("dotenv").config({ path: "../../.env" });
 
 import { authorization } from "../../middlewares";
-import { NextApiRequestAuthenticated } from "../../../../Shared/shared.interface";
+import { NextApiRequestAuthenticated } from "../../../../shared/shared.interface";
 import prisma from "../../../../prisma/prisma";
 
 const UploadAvatar = nextConnect({
