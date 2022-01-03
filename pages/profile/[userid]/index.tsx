@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { GetServerSidePropsContext } from "next";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../redux/selectors";
+import { getUser } from "../../../Redux/selectors";
 
 import { PagePropsType, User } from "../../../shared/shared.interface";
 
 import { ProfileHeader } from "../../../Components/Profile";
 import { AvatarUploadModal } from "../../../Components/Modal/AvatarUpload";
-import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
+import { setBadgeNotification } from "../../redux/slices/badgeNotification.slice";
 
 export interface UserProfileProps extends PagePropsType {
   currentUser: User;

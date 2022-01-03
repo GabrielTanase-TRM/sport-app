@@ -3,7 +3,7 @@ import React from "react";
 
 import { Provider } from "react-redux";
 import App, { AppContext } from "next/app";
-import { initializeStore } from "../redux";
+import { initializeStore } from "./redux";
 
 import { ThemeProvider } from "next-themes";
 

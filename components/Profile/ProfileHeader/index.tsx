@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { clearUser } from "../../../redux/slices/user.slice";
+import { clearUser } from "../../../Redux/slices/user.slice";
 import { ProfileHeaderProps } from "../Profile.interface";
-import { setIsLoggedIn } from "../../../redux/slices/isLoggedIn.slice";
+import { setIsLoggedIn } from "../../../Redux/slices/isLoggedIn.slice";
 
 import { useTheme } from "next-themes";
 import NavigationIcon from "../../Navigation/NavigationIcon";
@@ -14,7 +14,7 @@ import { logout } from "../../../services/user";
 import { icon } from "../../../shared/icons";
 import Wave from "../../../public/assets/images/wave.svg";
 import { Paths } from "../../../shared/paths.const";
-import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
+import { setBadgeNotification } from "../../../pages/redux/slices/badgeNotification.slice";
 
 const { FiLogOut, RiMoonFill, RiSunFill } = icon;
 

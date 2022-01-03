@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { removeBadgeNotification } from "../../redux/slices/badgeNotification.slice";
+import { removeBadgeNotification } from "../../pages/redux/slices/badgeNotification.slice";
 import { icon } from "../../shared/icons";
 
 const { IoClose } = icon;

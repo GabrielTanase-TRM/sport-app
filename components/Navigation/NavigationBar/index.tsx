@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { getIsLoggedIn, getUser } from "../../../redux/selectors";
+import { getIsLoggedIn, getUser } from "../../../Redux/selectors";
 
 import { icon } from "../../../shared/icons";
 import { Paths } from "../../../shared/paths.const";
