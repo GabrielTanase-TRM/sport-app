@@ -3,7 +3,7 @@ import Head from "next/head";
 // import fetch from "isomorphic-fetch";
 // import { isEmpty } from "lodash";
 // import { NextPageContext } from "next";
-import { t } from "../../Locales/locales.utils";
+import { t } from "../../locales/locales.utils";
 // import LocalesSwitch from "../../Components/LocalesSwitch";
 import { useSelector } from "react-redux";
 import { getIsLoggedIn, getUser } from "../../redux/selectors";

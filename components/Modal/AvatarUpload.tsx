@@ -4,7 +4,7 @@ import { isNil } from "lodash";
 import { useDispatch } from "react-redux";
 import { setBadgeNotification } from "../../redux/slices/badgeNotification.slice";
 
-import { t } from "../../Locales/locales.utils";
+import { t } from "../../locales/locales.utils";
 
 import { ModalProps } from "./Modal.Interface";
 

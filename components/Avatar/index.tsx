@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { t } from "../../Locales/locales.utils";
+import { t } from "../../locales/locales.utils";
 import { icon } from "../../shared/icons";
 import { validation } from "../../shared/regExValidation";
 import { IMAGE_PLACEHOLDER_BASE64 } from "../../shared/shared.const";
