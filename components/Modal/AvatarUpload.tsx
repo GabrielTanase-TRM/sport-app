@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { isNil } from "lodash";
 import { useDispatch } from "react-redux";
-import { setBadgeNotification } from "../../pages/redux/slices/badgeNotification.slice";
+import { setBadgeNotification } from "../../redux/slices/badgeNotification.slice";
 
 import { t } from "../../locales/locales.utils";
 
@@ -18,7 +18,7 @@ import { BadgeNotificationDuration } from "../../shared/shared.enum";
 import { validation } from "../../shared/regExValidation";
 import useUploadAvatar from "../../shared/hooks/useUploadAvatar";
 import { updateAvatar } from "../../services/user";
-import { setUser } from "../../Redux/slices/user.slice";
+import { setUser } from "../../redux/slices/user.slice";
 
 const { IoClose } = icon;
 

@@ -9,7 +9,7 @@ import {
 } from "firebase/storage";
 import { firebaseApp } from "../../firebaseApp";
 import { useDispatch } from "react-redux";
-import { setBadgeNotification } from "../../pages/redux/slices/badgeNotification.slice";
+import { setBadgeNotification } from "../../redux/slices/badgeNotification.slice";
 import { BadgeNotificationDuration } from "../shared.enum";
 
 const useUploadAvatar = () => {

@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getBadgeNotifications, getStore } from "../../Redux/selectors";
+import { getBadgeNotifications, getStore } from "../../redux/selectors";
 
 import { isEmpty } from "lodash";
 
-import { BadgeNotification } from "../../Redux/interface";
+import { BadgeNotification } from "../../redux/interface";
 import { NotificationBadge } from "../NotificationBadge";
 import { Navigation } from "../Navigation";
 

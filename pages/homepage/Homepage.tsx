@@ -6,7 +6,7 @@ import Head from "next/head";
 import { t } from "../../locales/locales.utils";
 // import LocalesSwitch from "../../Components/LocalesSwitch";
 import { useSelector } from "react-redux";
-import { getIsLoggedIn, getUser } from "../../Redux/selectors";
+import { getIsLoggedIn, getUser } from "../../redux/selectors";
 
 const Homepage = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
