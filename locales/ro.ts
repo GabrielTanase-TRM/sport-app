@@ -1,20 +1,23 @@
-export const ro = {
+import { Locales } from "./locales.type";
+
+export const ro: Locales = {
   welcome: "Bun venit!",
   profilePicture: "Imaginea de profil a utilizatorului",
   chooseAvatar: "Alege-ţi avatarul",
   save: "Salveaza",
   avatarSuccessfullyUploaded: "Imaginea de profil a fost incarcat cu succes!",
-  auth_welcome: "Bun venit la ",
-  auth_headline:
+  authWelcome: "Bun venit la ",
+  authHeadline:
     "Te rog sa te conectezi sau sa iti creezi un cont daca nu ai deja unu.",
-  auth_are_you_trainer: "Inregistrare ca si trainer?",
-  all_rights: "Toate drepturile rezervate ",
+  authAreYouTrainer: "Inregistrare ca si trainer?",
+  allRights: "Toate drepturile rezervate ",
   login: "Login",
   signup: "Signup",
-  validation_req_field: "Acest camp este obligatoriu.",
-  validation_max_character: "Maxim {{number}} caractere.",
-  validation_letters_only: "Te rog foloseste doar litere.",
-  validation_invalid_email: "Email invalid.",
-  validation_password: "Parola trebuie sa contina o litera mare si un numar.",
-  validation_rePassword: "Parola nu coincide.",
+  validationReqField: "Acest camp este obligatoriu.",
+  validationMinCharacter: "Minim {{number}} caractere.",
+  validationMaxCharacter: "Maxim {{number}} caractere.",
+  validationLettersOnly: "Te rog foloseste doar litere.",
+  validationInvalidEmail: "Email invalid.",
+  validationPassword: "Parola trebuie sa contina o litera mare si un numar.",
+  validationRePassword: "Parola nu coincide.",
 };

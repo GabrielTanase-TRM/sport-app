@@ -19,6 +19,7 @@ import { validation } from "../../shared/regExValidation";
 import useUploadAvatar from "../../shared/hooks/useUploadAvatar";
 import { updateAvatar } from "../../services/user";
 import { setUser } from "../../redux/slices/user.slice";
+import { useTranslation } from "../../shared/hooks/useTranslation";
 
 const { IoClose } = icon;
 
@@ -32,9 +33,10 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
   const [uploadedImage, setUploadedImage] = useState<any>(null);
   const dispatch = useDispatch();
   const { startUploadAvatar, uploadProgress } = useUploadAvatar();
+  const { translate } = useTranslation();
 
   const avatarUploadError = {
-    message: t("avatarSuccessfullyUploaded"),
+    message: translate.avatarSuccessfullyUploaded,
     secondDuration: BadgeNotificationDuration.LONGER,
   };
 
@@ -87,7 +89,7 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
                 height={"100%"}
                 layout="responsive"
                 objectFit="cover"
-                alt={t("profilePicture")}
+                alt={translate.profilePicture}
               />
             )}
           </div>
@@ -107,7 +109,7 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
           <div className="flex w-full h-1/2">
             <div className="relative h-full w-2/3">
               <FileInputButton
-                label={t("chooseAvatar")}
+                label={translate.chooseAvatar}
                 acceptedFileTypes="image/png, image/jpeg, image/jpg"
                 onChange={onChange}
                 uploadFileName="avatar"
@@ -116,7 +118,7 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
             <div className="w-1/3 flex justify-end items-end">
               <Button
                 disabled={isNil(uploadedImage)}
-                label={t("save")}
+                label={translate.save}
                 onClick={onSave}
               />
             </div>

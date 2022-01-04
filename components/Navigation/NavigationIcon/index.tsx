@@ -4,6 +4,7 @@ import { t } from "../../../locales/locales.utils";
 import { NaviIconProps } from "../Navigation.interface";
 import { validation } from "../../../shared/regExValidation";
 import { IMAGE_PLACEHOLDER_BASE64 } from "../../../shared/shared.const";
+import { useTranslation } from "../../../shared/hooks/useTranslation";
 
 const NavigationIcon: React.FC<NaviIconProps> = ({
   icon,
@@ -15,6 +16,8 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
   firstName,
 }) => {
   const [isActive, setIsActive] = useState(false);
+  const { translate } = useTranslation();
+
   const Icon = icon;
 
   useEffect(() => {
@@ -60,7 +63,7 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
                 src={icon}
                 layout="responsive"
                 objectFit="cover"
-                alt={t("profilePicture")}
+                alt={translate.profilePicture}
               />
             </div>
           </div>

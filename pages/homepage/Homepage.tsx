@@ -2,19 +2,20 @@ import React from "react";
 // import fetch from "isomorphic-fetch";
 // import { isEmpty } from "lodash";
 // import { NextPageContext } from "next";
-import { t } from "../../locales/locales.utils";
 // import LocalesSwitch from "../../Components/LocalesSwitch";
 import { useSelector } from "react-redux";
 import { getIsLoggedIn, getUser } from "../../redux/selectors";
+import { useTranslation } from "../../shared/hooks/useTranslation";
 
 const Homepage = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const user = useSelector(getUser);
+  const { translate } = useTranslation();
 
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">
       <div>
-        <p className="mb-2">{t("welcome")} Homepage</p>
+        <p className="mb-2">{translate.welcome} Homepage</p>
         <div>{/* <LocalesSwitch /> */}</div>
       </div>
       {user && <p className="mb-2">Hello {user.email}</p>}

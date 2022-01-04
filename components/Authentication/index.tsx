@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { useRouter } from "next/router";
+
 import { Endpoint } from "../../services/services.enum";
+import { postAuth } from "../../services/user";
+
 import { TextInput } from "../TextInput";
+import LoadingOverlay from "../LoadingOverlay";
+import SwitchButton from "../SwitchButton";
+
+import { validation } from "../../shared/regExValidation";
+
+import { tReplace } from "../../locales/locales.utils";
+import { useTranslation } from "../../shared/hooks/useTranslation";
+
 import EyeOn from "../../public/assets/icons/eye.svg";
 import EyeOff from "../../public/assets/icons/eye-off.svg";
 import Locked from "../../public/assets/icons/locked.svg";
 import Mail from "../../public/assets/icons/mail.svg";
-import { useRouter } from "next/router";
-import { postAuth } from "../../services/user";
-import { validation } from "../../shared/regExValidation";
-import SwitchButton from "../SwitchButton";
-import LoadingOverlay from "../LoadingOverlay";
-import { t, tReplace } from "../../locales/locales.utils";
 
 export const Authentication = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -19,6 +25,7 @@ export const Authentication = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState(null);
 
+  const { translate } = useTranslation();
   const router = useRouter();
 
   const {
@@ -92,8 +99,8 @@ export const Authentication = () => {
           <SwitchButton
             value={isSignUp}
             onChange={checkboxHandler}
-            leftContent={t("login").toUpperCase()}
-            rightContent={t("signup").toUpperCase()}
+            leftContent={translate.login.toUpperCase()}
+            rightContent={translate.signup.toUpperCase()}
           />
           {isSignUp ? (
             <form
@@ -108,7 +115,7 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   minLength: {
                     value: 3,
@@ -127,7 +134,7 @@ export const Authentication = () => {
                   validate: (firstName) =>
                     validation.lettersOnly.test(firstName.trim())
                       ? true
-                      : t("validation_letters_only"),
+                      : translate.validationLettersOnly,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -153,7 +160,7 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   minLength: {
                     value: 3,
@@ -172,7 +179,7 @@ export const Authentication = () => {
                   validate: (lastName) =>
                     validation.lettersOnly.test(lastName.trim())
                       ? true
-                      : t("validation_letters_only"),
+                      : translate.validationLettersOnly,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -195,12 +202,12 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   validate: (email) =>
                     validation.email.test(email.toLowerCase())
                       ? true
-                      : t("validation_invalid_email"),
+                      : translate.validationInvalidEmail,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -223,7 +230,7 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   minLength: {
                     value: 6,
@@ -242,7 +249,7 @@ export const Authentication = () => {
                   validate: (password) =>
                     validation.oneLowerUpperDigit.test(password)
                       ? true
-                      : t("validation_password"),
+                      : translate.validationPassword,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -265,7 +272,7 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   minLength: {
                     value: 6,
@@ -284,7 +291,7 @@ export const Authentication = () => {
                   validate: (rePassword) =>
                     rePassword === getValues("password")
                       ? true
-                      : t("validation_rePassword"),
+                      : translate.validationRePassword,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -309,7 +316,7 @@ export const Authentication = () => {
                   defaultValue=""
                   render={({ field: { onChange, value } }) => (
                     <div className="flex items-center">
-                      <p className="mr-2">{t("auth_are_you_trainer")}</p>
+                      <p className="mr-2">{translate.authAreYouTrainer}</p>
                       <input
                         id="isTrainer"
                         type="checkbox"
@@ -331,7 +338,7 @@ export const Authentication = () => {
                   value="Submit"
                   disabled={!isValid}
                 >
-                  {t("signup").toUpperCase()}
+                  {translate.signup.toUpperCase()}
                 </button>
               </label>
             </form>
@@ -348,12 +355,12 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   validate: (email) =>
                     validation.email.test(email.toLowerCase())
                       ? true
-                      : t("validation_invalid_email"),
+                      : translate.validationInvalidEmail,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -377,7 +384,7 @@ export const Authentication = () => {
                 rules={{
                   required: {
                     value: true,
-                    message: t("validation_req_field"),
+                    message: translate.validationReqField,
                   },
                   minLength: {
                     value: 6,
@@ -396,7 +403,7 @@ export const Authentication = () => {
                   validate: (password) =>
                     validation.oneLowerUpperDigit.test(password)
                       ? true
-                      : t("validation_password"),
+                      : translate.validationPassword,
                 }}
                 render={({ field: { onChange, value } }) => (
                   <TextInput
@@ -430,7 +437,7 @@ export const Authentication = () => {
                     !isValid && "bg-gray-600 text-gray-800 border-gray-600"
                   }`}
                 >
-                  {t("login").toUpperCase()}
+                  {translate.login.toUpperCase()}
                 </button>
               </label>
             </form>

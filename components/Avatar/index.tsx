@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-import { t } from "../../locales/locales.utils";
 import { icon } from "../../shared/icons";
 import { validation } from "../../shared/regExValidation";
 import { IMAGE_PLACEHOLDER_BASE64 } from "../../shared/shared.const";
+import { useTranslation } from "../../shared/hooks/useTranslation";
 
 interface AvatarProps {
   avatar: string;
@@ -20,6 +20,8 @@ const Avatar: React.FC<AvatarProps> = ({
   openModal,
   containerClassName,
 }) => {
+  const { translate } = useTranslation();
+
   return (
     <div
       className={`relative w-36 h-36 border-2 border-white border-dashed shadow-md rounded-full p-2.5 ${containerClassName}`}
@@ -43,7 +45,7 @@ const Avatar: React.FC<AvatarProps> = ({
             height={"100%"}
             layout="responsive"
             objectFit="cover"
-            alt={t("profilePicture")}
+            alt={translate.profilePicture}
           />
         )}
       </div>

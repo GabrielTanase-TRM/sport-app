@@ -12,6 +12,16 @@ module.exports = {
     locales: ["en", "ro"],
     defaultLocale: "en",
     localeDetection: true,
+    domains: [
+      {
+        domain: "example.en",
+        defaultLocale: "en",
+      },
+      {
+        domain: "example.ro",
+        defaultLocale: "ro",
+      },
+    ],
   },
   images: {
     domains: ["cdn.pixabay.com", "firebasestorage.googleapis.com"],
