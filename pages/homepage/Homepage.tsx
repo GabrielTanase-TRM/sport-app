@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 // import fetch from "isomorphic-fetch";
 // import { isEmpty } from "lodash";
 // import { NextPageContext } from "next";
@@ -14,10 +13,6 @@ const Homepage = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center flex-col">
-      <Head>
-        <title>Dark mode with Tailwind and Next.js</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div>
         <p className="mb-2">{t("welcome")} Homepage</p>
         <div>{/* <LocalesSwitch /> */}</div>

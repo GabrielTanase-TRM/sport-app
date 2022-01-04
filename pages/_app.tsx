@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import Layout from "../components/Layout";
 import { MyAppProps } from "../shared/shared.interface";
 import { BASE_URL } from "../services/service.const";
+import Head from "next/head";
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
   const { initialReduxState } = pageProps;
@@ -23,6 +24,9 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
       <Provider store={reduxStore}>
         <ThemeProvider defaultTheme="system" attribute="class">
           <Layout>
+            <Head>
+              <title>Sport app</title>
+            </Head>
             <Component {...pageProps} />
           </Layout>
         </ThemeProvider>

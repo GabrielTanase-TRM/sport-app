@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { WidthButton } from "./SwitchButton.enum";
 import { SwitchButtonProps } from "./SwitchButton.interface";
 
@@ -9,8 +9,17 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
   leftContent = "Left",
   rightContent = "Right",
 }) => {
+  const [leftButtonWidth, setLeftButtonWidth] = useState(0);
+  const [rightButtonWidth, setRightButtonWidth] = useState(0);
+  const leftButtonRef = useRef(null);
+  const rightButtonRef = useRef(null);
+
   const marginSelector = `${widthButton * 0.05}px`;
-  const widthSelector = `${widthButton * 0.5}px`;
+
+  useEffect(() => {
+    setLeftButtonWidth(leftButtonRef.current.clientWidth);
+    setRightButtonWidth(rightButtonRef.current.clientWidth);
+  }, [leftButtonRef, rightButtonRef]);
 
   return (
     <div className={`flex justify-center w-full`}>
@@ -21,7 +30,7 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
           margin: `${widthButton * 0.1}px 0`,
           height: `${widthButton / 4}px`,
         }}
-        className={`c-LoginSignup__switcher c-LoginSignup__switcher-1 rounded-3xl relative bg-turquoise`}
+        className={`rounded-3xl relative bg-turquoise`}
       >
         <div
           className={`z-1 absolute rounded-3xl bg-white`}
@@ -31,8 +40,8 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
               : "left 0.5s, right 0.4s 0.2s",
             top: marginSelector,
             bottom: marginSelector,
-            left: value ? widthSelector : marginSelector,
-            right: value ? marginSelector : widthSelector,
+            left: value ? `${leftButtonWidth + 21}px` : marginSelector,
+            right: value ? marginSelector : `${rightButtonWidth + 20}px`,
           }}
         />
         <div
@@ -42,8 +51,9 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
           className="absolute top-0 z-10 flex justify-between items-center font-extrabold w-full h-full"
         >
           <a
+            ref={leftButtonRef}
             style={{ fontSize: widthButton / 10, width: widthButton * 0.45 }}
-            className={`px-1 cursor-pointer text-center select-none ${
+            className={`px-1 pr-[7px] cursor-pointer text-center select-none ${
               value ? "text-gray-500" : "text-black"
             }`}
             onClick={() => onChange(false)}
@@ -51,8 +61,9 @@ const SwitchButton: React.FC<SwitchButtonProps> = ({
             {leftContent}
           </a>
           <a
+            ref={rightButtonRef}
             style={{ fontSize: widthButton / 10, width: widthButton * 0.45 }}
-            className={`px-1 cursor-pointer text-center select-none ${
+            className={`px-1 pl-[7px] cursor-pointer text-center select-none ${
               value ? "text-black" : "text-gray-500"
             }`}
             onClick={() => onChange(true)}

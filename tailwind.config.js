@@ -41,12 +41,13 @@ module.exports = {
         "240px": "240px",
       },
       minWidth: {
-        "380px": "380px",
+        "250px": "250px",
         "40%": "40%",
       },
       maxWidth: {
         "2/5": "40%",
         "3/4": "75%",
+        "440px": "440px",
       },
       borderRadius: {
         "4xl": "2rem",

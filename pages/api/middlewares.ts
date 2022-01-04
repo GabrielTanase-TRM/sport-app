@@ -1,6 +1,7 @@
 import { NextApiHandler, NextApiResponse } from "next";
 import { verify } from "jsonwebtoken";
 import { NextApiRequestAuthenticated } from "../../shared/shared.interface";
+import { Paths } from "../../shared/paths.const";
 
 export const authorization =
   (fn: NextApiHandler) =>
@@ -13,10 +14,8 @@ export const authorization =
           req.decoded = decoded;
           return await fn(req as NextApiRequestAuthenticated, res);
         }
-        // res.writeHead(302, { Location: "/login" });
-        return res.status(401).json({
-          message: "You have no authorization for this request.",
-        });
+
+        return res.redirect(401, Paths.Authentication.path);
       }
     );
   };

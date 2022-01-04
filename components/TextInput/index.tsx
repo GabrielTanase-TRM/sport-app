@@ -27,8 +27,9 @@ export const TextInput: React.FC<TextInputProps> = ({
         return "";
     }
   };
+
   return (
-    <div className="w-full">
+    <div className="max-w-440px w-full">
       <div className="relative pb-4  ">
         <p className={`ml-2`}>{label}</p>
         <div className="relative overflow-hidden">
@@ -41,10 +42,10 @@ export const TextInput: React.FC<TextInputProps> = ({
             </div>
           )}
           <input
-            className={`w-full outline-none px-2 py-2.5 text-base leading-4 rounded-md border-2 min-w-380px ${
+            className={`w-full outline-none px-2 py-2.5 text-base leading-4 rounded-md border-2 min-w-250px ${
               hasError
                 ? "border-redWarning focus:border-redWarning"
-                : "border-white focus:border-turquoise"
+                : "border-white dark:border-darkSecondaryBackground dark:bg-darkSecondaryBackground focus:border-turquoise"
             } 
             ${paddingByIconsNumber()}
             
@@ -71,7 +72,7 @@ export const TextInput: React.FC<TextInputProps> = ({
             </div>
           )}
           {rightIcon && (
-            <div className="absolute right-0 top-0 h-11 w-11 p-2 flex items-center">
+            <div className="absolute right-0 top-0 h-11 w-11 p-2 flex items-center ">
               {rightIcon}
             </div>
           )}
