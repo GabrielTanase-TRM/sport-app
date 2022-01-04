@@ -22,7 +22,7 @@ export interface User {
   testimonials: string;
 }
 
-export interface NextApiRequestAuthenticated extends NextApiRequest {
+export interface NextApiRequestAuthorized extends NextApiRequest {
   decoded: {
     id: string;
     email: string;

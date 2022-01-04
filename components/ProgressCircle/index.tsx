@@ -9,7 +9,7 @@ export const ProgressCircle: React.FC<ProgressCircleProps> = ({
   strokeWidth = 8,
 }) => {
   const circleDimension = dimension / 2.3;
-  const strokeDash = dimension * 2.61;
+  const strokeDash = dimension * 2.62;
   return (
     <div style={{ width: dimension + 10, height: dimension + 10 }}>
       <div className="relative h-full w-full">
@@ -38,15 +38,15 @@ export const ProgressCircle: React.FC<ProgressCircleProps> = ({
             r={circleDimension}
           ></circle>
         </svg>
-        <div className="h-full w-full inset-0 absolute flex justify-center items-center color-black ">
+        <div className="h-full w-full pb-2 pr-1 inset-0 absolute flex justify-center items-center">
           <h2
             style={{ fontSize: `${numberSize}px` }}
-            className="bold text-black"
+            className="bold text-black dark:text-lightBackground"
           >
             {value}
             <span
               style={{ fontSize: `${percentSize}px` }}
-              className="bold text-black"
+              className="bold text-black dark:text-lightBackground"
             >
               %
             </span>

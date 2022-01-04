@@ -1,10 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import nextConnect from "next-connect";
-require("dotenv").config({ path: "../../.env" });
+import prisma from "../../../../prisma/prisma";
 
 import { authorization } from "../../middlewares";
-import { NextApiRequestAuthenticated } from "../../../../shared/shared.interface";
-import prisma from "../../../../prisma/prisma";
+import { NextApiRequestAuthorized } from "../../../../shared/shared.interface";
 
 const UploadAvatar = nextConnect({
   onError(error, req: NextApiRequest, res: NextApiResponse) {
@@ -18,7 +17,7 @@ const UploadAvatar = nextConnect({
 });
 
 UploadAvatar.post(
-  async (req: NextApiRequestAuthenticated, res: NextApiResponse) => {
+  async (req: NextApiRequestAuthorized, res: NextApiResponse) => {
     await prisma.users
       .update({
         where: { id: req.decoded.id },

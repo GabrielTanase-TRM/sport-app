@@ -4,8 +4,6 @@ import { isNil } from "lodash";
 import { useDispatch } from "react-redux";
 import { setBadgeNotification } from "../../redux/slices/badgeNotification.slice";
 
-import { t } from "../../locales/locales.utils";
-
 import { ModalProps } from "./Modal.Interface";
 
 import { FileInputButton } from "../FileInputButton";
@@ -101,8 +99,8 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
                 dimension={40}
                 strokeWidth={4}
                 value={uploadProgress}
-                numberSize={12}
-                percentSize={10}
+                numberSize={11}
+                percentSize={8}
               />
             )}
           </div>

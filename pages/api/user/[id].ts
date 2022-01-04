@@ -1,33 +1,36 @@
 import { NextApiResponse } from "next";
 import { isEmpty } from "lodash";
-import { authorization } from "../middlewares";
+import nextConnect from "next-connect";
 import prisma from "../../../prisma/prisma";
-import { NextApiRequestAuthenticated } from "../../../shared/shared.interface";
-require("dotenv").config({ path: "../../.env" });
+import { authorization } from "../middlewares";
 
-export const GetUserById = async (
-  req: NextApiRequestAuthenticated,
-  res: NextApiResponse
-) => {
-  if (req.method === "GET") {
-    const user = await prisma.users.findUnique({
-      where: {
-        id: req.query.id,
-      },
-    });
+import { NextApiRequestAuthorized } from "../../../shared/shared.interface";
 
-    if (!isEmpty(user)) {
-      return res.status(200).send(user);
-    } else {
-      return res.status(401).send({
-        message: "Can't find the user.",
-      });
-    }
+const GetUserById = nextConnect({
+  onError(error, req: NextApiRequestAuthorized, res: NextApiResponse) {
+    res
+      .status(501)
+      .json({ error: `Sorry something Happened! ${error.message}` });
+  },
+  onNoMatch(req: NextApiRequestAuthorized, res: NextApiResponse) {
+    res.status(405).json({ error: `Method '${req.method}' Not Allowed` });
+  },
+});
+
+GetUserById.get(async (req: NextApiRequestAuthorized, res: NextApiResponse) => {
+  const user = await prisma.users.findUnique({
+    where: {
+      id: req.query.id,
+    },
+  });
+
+  if (!isEmpty(user)) {
+    return res.status(200).send(user);
   } else {
-    return res.status(405).send({
-      message: "Method not allowed",
+    return res.status(401).send({
+      message: "Can't find the user.",
     });
   }
-};
+});
 
 export default authorization(GetUserById);
