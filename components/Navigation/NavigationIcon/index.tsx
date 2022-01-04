@@ -36,7 +36,7 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
       } px-3`}
     >
       <div
-        className={`${iconClassName} navi-icon lg:group ${
+        className={`${iconClassName} navi-icon group ${
           isActive && "bg-gray-800 text-turquoise"
         }`}
       >
@@ -68,7 +68,7 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
           <Icon size={size} />
         )}
         {tooltip && (
-          <span className="tooltip lg:group-hover:scale-100">{tooltip}</span>
+          <span className="tooltip group-hover:lg:scale-100">{tooltip}</span>
         )}
       </div>
     </div>
