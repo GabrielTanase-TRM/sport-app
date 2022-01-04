@@ -121,14 +121,14 @@ export const Authentication = () => {
                     value: 3,
                     message: tReplace(
                       { number: "3" },
-                      "validation_min_character"
+                      translate.validationMinCharacter
                     ),
                   },
                   maxLength: {
                     value: 24,
                     message: tReplace(
                       { number: "24" },
-                      "validation_max_character"
+                      translate.validationMaxCharacter
                     ),
                   },
                   validate: (firstName) =>
@@ -166,14 +166,14 @@ export const Authentication = () => {
                     value: 3,
                     message: tReplace(
                       { number: "3" },
-                      "validation_min_character"
+                      translate.validationMinCharacter
                     ),
                   },
                   maxLength: {
                     value: 24,
                     message: tReplace(
                       { number: "24" },
-                      "validation_max_character"
+                      translate.validationMaxCharacter
                     ),
                   },
                   validate: (lastName) =>
@@ -236,14 +236,14 @@ export const Authentication = () => {
                     value: 6,
                     message: tReplace(
                       { number: "6" },
-                      "validation_min_character"
+                      translate.validationMinCharacter
                     ),
                   },
                   maxLength: {
                     value: 24,
                     message: tReplace(
                       { number: "24" },
-                      "validation_max_character"
+                      translate.validationMaxCharacter
                     ),
                   },
                   validate: (password) =>
@@ -278,14 +278,14 @@ export const Authentication = () => {
                     value: 6,
                     message: tReplace(
                       { number: "6" },
-                      "validation_min_character"
+                      translate.validationMinCharacter
                     ),
                   },
                   maxLength: {
                     value: 24,
                     message: tReplace(
                       { number: "24" },
-                      "validation_max_character"
+                      translate.validationMaxCharacter
                     ),
                   },
                   validate: (rePassword) =>
@@ -390,14 +390,14 @@ export const Authentication = () => {
                     value: 6,
                     message: tReplace(
                       { number: "6" },
-                      "validation_min_character"
+                      translate.validationMinCharacter
                     ),
                   },
                   maxLength: {
                     value: 24,
                     message: tReplace(
                       { number: "24" },
-                      "validation_max_character"
+                      translate.validationMaxCharacter
                     ),
                   },
                   validate: (password) =>
