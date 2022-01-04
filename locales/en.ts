@@ -6,6 +6,7 @@ export const en = {
   avatarSuccessfullyUploaded: "The profile picture was successfully loaded!",
   auth_welcome: "Welcome to",
   auth_headline: "Please login or create an account if you don't have one.",
+  auth_are_you_trainer: "Register as a trainer?",
   all_rights: "All rights reserved ",
   login: "Login",
   signup: "Signup",

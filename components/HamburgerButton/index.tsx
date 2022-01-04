@@ -6,7 +6,7 @@ const HamburgerButton = ({ onClick }) => {
     onClick(), setIsActive(!isActive);
   };
   return (
-    <div className="absolute z-0 top-4 -right-14 rounded-full pl-10 shadow-lightMDAllSides backgroundColor">
+    <div className="absolute z-0 top-4 -right-14 rounded-full pl-10 shadow-lightMDAllSides dark:shadow-darkMDAllSides dark:border-gray-800 bg-lightBackground dark:bg-darkSecondaryBackground">
       <a onClick={toggleHamburger} className="w-14 h-14 block">
         <svg
           className={`ham ham3 ${isActive && "active"}`}

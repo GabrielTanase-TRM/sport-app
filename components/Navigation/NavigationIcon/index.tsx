@@ -32,7 +32,7 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
       className={`border-r-2 ${containerClassName} ${
         isActive
           ? "border-turquoise"
-          : "border-lightBackground dark:border-darkBackground"
+          : "border-lightBackground dark:border-darkSecondaryBackground"
       } px-3`}
     >
       <div

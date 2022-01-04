@@ -66,9 +66,10 @@ module.exports = {
         lightBackground: "#F1F1F1",
         darkBackground: "#0D1B2A",
         darkSecondaryBackground: "#192C41",
+        grayBlue: "#7188ac",
       },
       boxShadow: {
-        darkMDAllSides: "0px 0px 7px -3px #333",
+        darkMDAllSides: "0px 0px 7px -3px #7188ac",
         lightMDAllSides: "0px 0px 7px -3px #000",
       },
       fontFamily: {},

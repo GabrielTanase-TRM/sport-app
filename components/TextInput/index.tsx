@@ -45,7 +45,7 @@ export const TextInput: React.FC<TextInputProps> = ({
             className={`w-full outline-none px-2 py-2.5 text-base leading-4 rounded-md border-2 min-w-250px ${
               hasError
                 ? "border-redWarning focus:border-redWarning"
-                : "border-white dark:border-darkSecondaryBackground dark:bg-darkSecondaryBackground focus:border-turquoise"
+                : "border-gray-300 bg-gray-300 dark:border-darkSecondaryBackground dark:bg-darkSecondaryBackground  focus:border-turquoise"
             } 
             ${paddingByIconsNumber()}
             

@@ -7,6 +7,7 @@ export const ro = {
   auth_welcome: "Bun venit la ",
   auth_headline:
     "Te rog sa te conectezi sau sa iti creezi un cont daca nu ai deja unu.",
+  auth_are_you_trainer: "Inregistrare ca si trainer?",
   all_rights: "Toate drepturile rezervate ",
   login: "Login",
   signup: "Signup",

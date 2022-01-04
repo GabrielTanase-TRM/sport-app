@@ -6,7 +6,7 @@
 @layer components {
   .navi-icon {
     @apply relative flex justify-center items-center  h-8 w-8
-    lg:hover:bg-gray-800 lg:hover:text-turquoise mt-5 mr-24 rounded-3xl bg-gray-400 dark:bg-darkSecondaryBackground text-white dark:text-turquoise
+    lg:hover:bg-gray-800 lg:hover:text-turquoise mt-5 mr-24 rounded-3xl bg-gray-400 dark:bg-gray-800 text-white dark:text-turquoise
     hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer lg:mx-auto shadow-lightMDAllSides dark:shadow-darkMDAllSides;
   }
   .tooltip {

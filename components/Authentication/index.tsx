@@ -309,7 +309,7 @@ export const Authentication = () => {
                   defaultValue=""
                   render={({ field: { onChange, value } }) => (
                     <div className="flex items-center">
-                      <p className="mr-2"> Are you a Trainer?</p>
+                      <p className="mr-2">{t("auth_are_you_trainer")}</p>
                       <input
                         id="isTrainer"
                         type="checkbox"
@@ -324,7 +324,7 @@ export const Authentication = () => {
               {!!serverError && <div>{serverError}</div>}
               <label className="flex justify-center mt-5">
                 <button
-                  className={`border border-turquoise rounded-sm py-1 px-2 ${
+                  className={`border border-turquoise rounded-md py-1 px-2 ${
                     !isValid && "bg-gray-600 text-gray-800 border-gray-600"
                   }`}
                   type="submit"
@@ -426,7 +426,7 @@ export const Authentication = () => {
                   type="submit"
                   value="Submit"
                   disabled={!isValid}
-                  className={`border border-turquoise rounded-sm py-1 px-2 ${
+                  className={`border border-turquoise rounded-md py-1 px-2 ${
                     !isValid && "bg-gray-600 text-gray-800 border-gray-600"
                   }`}
                 >
