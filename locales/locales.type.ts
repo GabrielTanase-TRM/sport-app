@@ -17,4 +17,5 @@ export type Locales = {
   validationInvalidEmail: string;
   validationPassword: string;
   validationRePassword: string;
+  logoutSuccessfullyMessage: string;
 };

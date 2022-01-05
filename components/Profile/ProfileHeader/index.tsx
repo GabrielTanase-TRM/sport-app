@@ -15,6 +15,7 @@ import { icon } from "../../../shared/icons";
 import Wave from "../../../public/assets/images/wave.svg";
 import { Paths } from "../../../shared/paths.const";
 import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
+import { useTranslation } from "../../../shared/hooks/useTranslation";
 
 const { FiLogOut, RiMoonFill, RiSunFill } = icon;
 
@@ -28,9 +29,9 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   const dispatch = useDispatch();
   const router = useRouter();
 
-  // const [isMounted, setIsMounted] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { translate } = useTranslation();
 
   useEffect(() => {
     setIsDarkTheme(theme === "light" ? false : true);
@@ -47,8 +48,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         dispatch(clearUser());
         dispatch(
           setBadgeNotification({
-            message: "Test test Test",
-            isError: true,
+            message: translate.logoutSuccessfullyMessage,
             secondDuration: 3,
           })
         );

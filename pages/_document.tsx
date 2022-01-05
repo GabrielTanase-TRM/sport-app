@@ -24,10 +24,6 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon/favicon-16x16.png"
           />
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
         </Head>
         <body className="bg-lightBackground text-primary dark:bg-darkBackground">
           <Main />

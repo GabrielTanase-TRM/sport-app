@@ -20,4 +20,5 @@ export const ro: Locales = {
   validationInvalidEmail: "Email invalid.",
   validationPassword: "Parola trebuie sa contina o litera mare si un numar.",
   validationRePassword: "Parola nu coincide.",
+  logoutSuccessfullyMessage: "Deconectare cu succes.",
 };
