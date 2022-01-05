@@ -1,20 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getBadgeNotifications, getStore } from "../../redux/selectors";
+import { getBadgeNotifications } from "../../redux/selectors";
 
-import { isEmpty } from "lodash";
+import { isEmpty, isNil } from "lodash";
 
 import { BadgeNotification } from "../../redux/interface";
+import { LayoutProps } from "./index.interface";
+
 import { NotificationBadge } from "../NotificationBadge";
 import { Navigation } from "../Navigation";
 
-const Layout = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ deferredPrompt, children }) => {
   const badgeNotifications = useSelector(getBadgeNotifications);
-  const store = useSelector(getStore);
-  console.log(store);
 
   const renderBadgesError = (badgesError: Array<BadgeNotification>) => (
-    <div className="flex flex-col items-end fixed top-10 right-3 z-50 max-w-3/4">
+    <div className="flex flex-col items-end fixed top-10 right-3 z-30 max-w-3/4">
       {badgesError.map((badgeError: BadgeNotification) => (
         <NotificationBadge
           key={badgeError.id}
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex w-screen h-screen backgroundColor text-turquoise">
-      <Navigation />
+      <Navigation deferredPrompt={deferredPrompt} />
       <main className="w-full h-full">
         {!isEmpty(badgeNotifications) && renderBadgesError(badgeNotifications)}
         {children}

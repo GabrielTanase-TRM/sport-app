@@ -27,6 +27,7 @@
     "multer-gridfs-storage": "^5.0.2",
     "next": "12",
     "next-connect": "^0.11.0",
+    "next-pwa": "^5.4.4",
     "next-themes": "^0.0.15",
     "prisma": "^3.6.0",
     "react": "17.0.2",

@@ -1,4 +1,5 @@
-module.exports = {
+const withPWA = require("next-pwa");
+module.exports = withPWA({
   reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
@@ -27,4 +28,10 @@ module.exports = {
     domains: ["cdn.pixabay.com", "firebasestorage.googleapis.com"],
     minimumCacheTTL: 180,
   },
-};
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+    // disable: process.env.NODE_ENV === "development",
+  },
+});

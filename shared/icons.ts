@@ -1,4 +1,8 @@
-import { BsSuitHeartFill, BsFillPersonFill } from "react-icons/bs";
+import {
+  BsSuitHeartFill,
+  BsFillPersonFill,
+  BsArrowDownCircle,
+} from "react-icons/bs";
 import { MdOutlineSportsHandball, MdLiveHelp, MdHome } from "react-icons/md";
 import { FaBookReader } from "react-icons/fa";
 import { GoMail } from "react-icons/go";
@@ -22,4 +26,5 @@ export const icon = {
   MdOutlineModeEditOutline,
   FiLogOut,
   IoClose,
+  BsArrowDownCircle,
 };

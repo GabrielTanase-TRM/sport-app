@@ -6,11 +6,11 @@
 @layer components {
   .navi-icon {
     @apply relative flex justify-center items-center  h-8 w-8
-    lg:hover:bg-gray-800 lg:hover:text-turquoise mt-5 mr-24 rounded-3xl bg-gray-400 dark:bg-gray-800 text-white dark:text-turquoise
+    lg:hover:bg-gray-800 lg:hover:text-turquoise mt-5 mr-28 rounded-3xl bg-gray-400 dark:bg-gray-800 text-white dark:text-turquoise
     hover:rounded-xl transition-all duration-300 ease-linear cursor-pointer lg:mx-auto shadow-lightMDAllSides dark:shadow-darkMDAllSides;
   }
   .tooltip {
-    @apply absolute lg:w-auto lg:p-2 lg:m-2 lg:min-w-max left-12 lg:left-10 lg:rounded-md lg:shadow-md text-turquoise lg:text-white 
+    @apply absolute lg:w-auto lg:p-2 lg:m-2 min-w-max left-12 lg:left-10 lg:rounded-md lg:shadow-md text-turquoise lg:text-white 
     lg:bg-gray-800 text-xs font-bold lg:transition-all lg:duration-200 lg:scale-0 lg:origin-left;
   }
   .backgroundColor {
@@ -20,6 +20,12 @@
 
 input[type="file"] {
   display: none;
+}
+/* Hide PWA custom install button  */
+@media all and (display-mode: standalone) {
+  .installButton {
+    display: none;
+  }
 }
 
 /* Hamburger button animation */

@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
+import isNil from "lodash/isNil";
+
 import { getIsLoggedIn, getUser } from "../../../redux/selectors";
 
 import { icon } from "../../../shared/icons";
 import { Paths } from "../../../shared/paths.const";
+import { BRANDING_NAME } from "../../../shared/shared.const";
 
 import NavigationIcon from "../NavigationIcon";
 import { NavigationIconWrapper } from "../NavigationIconWrapper";
 import HamburgerButton from "../../HamburgerButton";
 import Overlay from "../../Overlay";
+
+import { images } from "../../../shared/images";
+import { NavigationProps } from "./index.inerface";
+import useCookie from "../../../shared/hooks/useCookie";
+
+const { BrandingLogo } = images;
 
 const {
   BsSuitHeartFill,
@@ -20,14 +30,16 @@ const {
   FiLogIn,
   MdLiveHelp,
   MdHome,
+  BsArrowDownCircle,
 } = icon;
 
-export const Navigation = () => {
+export const Navigation: React.FC<NavigationProps> = ({ deferredPrompt }) => {
   const [active, setActive] = useState("");
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [cookie, setCookie] = useCookie("sport-app-installed", false);
 
   const router = useRouter();
-
+  console.log(cookie);
   const user = useSelector(getUser);
   const isLoggedIn = useSelector(getIsLoggedIn);
 
@@ -45,18 +57,31 @@ export const Navigation = () => {
 
   const toggleHamburger = () => setIsHamburgerOpen(!isHamburgerOpen);
 
+  const handleInstallPrompt = async () => {
+    // Show the install prompt
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(outcome);
+  };
+
   return (
     <>
       {isHamburgerOpen && <Overlay onClick={toggleHamburger} />}
       <div
-        className={`fixed lg:flex bg-lightBackground dark:bg-darkSecondaryBackground transition-translate duration-500 ease-out -translate-x-full lg:translate-x-0 z-30 h-full pb-10 lg:py-10 flex flex-col items-center justify-between shadow-xl border-r border-divider dark:border-gray-800 ${
+        className={`fixed lg:relative lg:flex lg:max-w-[60px] bg-lightBackground dark:bg-darkSecondaryBackground transition-translate duration-500 ease-out -translate-x-full lg:translate-x-0 z-30 h-full pb-10 lg:py-10 flex flex-col items-center justify-between shadow-xl border-r border-divider dark:border-gray-800 ${
           isHamburgerOpen && "translate-x-0"
         }`}
       >
         <HamburgerButton onClick={toggleHamburger} />
         <div className="z-10 bg-lightBackground dark:bg-darkSecondaryBackground">
-          <div className="h-20 w-full flex items-center justify-center">
-            <p>LOGO</p>
+          <div className="lg:px-1 lg:block flex justify-center">
+            <Image
+              src={BrandingLogo}
+              width={"100%"}
+              height={"80%"}
+              objectFit="contain"
+              alt={`${BRANDING_NAME} Logo`}
+            />
           </div>
           <Link href={Paths.Homepage.path} passHref>
             <NavigationIconWrapper>
@@ -135,6 +160,15 @@ export const Navigation = () => {
                 />
               </NavigationIconWrapper>
             </Link>
+          )}
+          {!cookie && (
+            <button onClick={handleInstallPrompt}>
+              <NavigationIcon
+                {...iconProps}
+                icon={BsArrowDownCircle}
+                tooltip={Paths.Install.name}
+              />
+            </button>
           )}
         </div>
       </div>

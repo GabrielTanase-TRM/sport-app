@@ -40,7 +40,8 @@ const NavigationIcon: React.FC<NaviIconProps> = ({
     >
       <div
         className={`${iconClassName} navi-icon group ${
-          isActive && "bg-gray-800 text-turquoise"
+          isActive &&
+          "bg-gray-800 dark:bg-gray-600 text-turquoise dark:text-white"
         }`}
       >
         {validation.isHexColor.test(icon as string) ? (

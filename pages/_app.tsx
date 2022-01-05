@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Provider } from "react-redux";
 import App, { AppContext } from "next/app";
@@ -13,29 +13,48 @@ import Layout from "../components/Layout";
 import { MyAppProps } from "../shared/shared.interface";
 import { BASE_URL } from "../services/service.const";
 import Head from "next/head";
+import { useLocalStorage } from "../shared/hooks/useLocalStorage";
+import { BRANDING_NAME } from "../shared/shared.const";
+import useCookie from "../shared/hooks/useCookie";
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
   const { initialReduxState } = pageProps;
   const reduxStore = initializeStore(initialReduxState);
   const queryClient = new QueryClient();
 
+  const [cookie, setCookie] = useCookie("sport-app-installed", false);
+  useEffect(() => {
+    if (!cookie) {
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        setDeferredPrompt(e);
+      });
+    }
+    window.addEventListener("appinstalled", (e) => {
+      // Set sport-app-installed cookie [true] for 10 years
+      setCookie(true, 2038);
+      setDeferredPrompt(null);
+    });
+  }, []);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <Provider store={reduxStore}>
-        <ThemeProvider defaultTheme="system" attribute="class">
-          <Layout>
-            <Head>
-              <title>Sport app</title>
-              <meta
-                name="viewport"
-                content="initial-scale=1.0, width=device-width"
-              />
-            </Head>
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </Provider>
-    </QueryClientProvider>
+    // <QueryClientProvider client={queryClient}>
+    <Provider store={reduxStore}>
+      <ThemeProvider defaultTheme="system" attribute="class">
+        <Layout deferredPrompt={deferredPrompt}>
+          <Head>
+            <title>{BRANDING_NAME}</title>
+            <meta
+              name="viewport"
+              content="initial-scale=1.0, width=device-width"
+            />
+          </Head>
+          <Component {...pageProps} deferredPrompt={deferredPrompt} />
+        </Layout>
+      </ThemeProvider>
+    </Provider>
+    // </QueryClientProvider>
   );
 };
 

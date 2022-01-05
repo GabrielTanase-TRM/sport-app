@@ -31,4 +31,7 @@ export const Paths = {
     name: "Help",
     path: "/help",
   },
+  Install: {
+    name: "Install app",
+  },
 };
