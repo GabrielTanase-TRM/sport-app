@@ -72,7 +72,10 @@ export const Navigation: React.FC<NavigationProps> = ({ deferredPrompt }) => {
           isHamburgerOpen && "translate-x-0"
         }`}
       >
-        <HamburgerButton onClick={toggleHamburger} />
+        <HamburgerButton
+          isActive={isHamburgerOpen}
+          setIsActive={toggleHamburger}
+        />
         <div className="z-10 bg-lightBackground dark:bg-darkSecondaryBackground">
           <div className="lg:px-1 lg:block flex justify-center">
             <Image
