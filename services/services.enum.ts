@@ -3,6 +3,7 @@ export enum Endpoint {
   Signup = "api/signup",
   updateAvatar = "api/upload/image/avatar",
   Logout = "api/logout",
+  Members = "api/members",
 }
 
 export enum Method {

@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "GermaniaOne";
+  src: url("../public/fonts/GermaniaOne-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Playfair Display */
+@font-face {
+  font-family: "PlayfairDisplay-Regular";
+  src: url("../public/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-Medium";
+  src: url("../public/fonts/Playfair_Display/PlayfairDisplay-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-SemiBold";
+  src: url("../public/fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-Bold";
+  src: url("../public/fonts/Playfair_Display/PlayfairDisplay-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-ExtraBold";
+  src: url("../public/fonts/Playfair_Display/PlayfairDisplay-Bold.ttf");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* Inter */
+@font-face {
+  font-family: "Inter-Thin";
+  src: url("../public/fonts/Inter/Inter-Thin.ttf");
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("../public/fonts/Inter/Inter-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-Medium";
+  src: url("../public/fonts/Inter/Inter-Medium.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: url("../public/fonts/Inter/Inter-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-Bold";
+  src: url("../public/fonts/Inter/Inter-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter-ExtraBold";
+  src: url("../public/fonts/Inter/Inter-ExtraBold.ttf");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}

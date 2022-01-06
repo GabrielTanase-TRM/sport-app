@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("./fontFaces.css");
 
 /* Custom class for tailwind */
 @layer components {
@@ -69,4 +71,12 @@ input[type="file"] {
 .ham3.active .bottom {
   stroke-dasharray: 110 205;
   stroke-dashoffset: -86px;
+}
+
+/* Prevent images highlighted on click */
+img::selection {
+  background-color: transparent;
+}
+img::-moz-selection {
+  background-color: transparent;
 }

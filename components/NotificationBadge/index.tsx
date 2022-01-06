@@ -31,7 +31,7 @@ export const NotificationBadge: React.FC<NotificationBadgeProps> = ({
   return (
     <div
       className={`flex items-center rounded-md mb-3 pl-3 w-fit bg-opacity-90 shadow-lg ${
-        isError ? "bg-redWarning" : "bg-greenSuccess"
+        isError ? "bg-redError" : "bg-greenSuccess"
       }`}
     >
       <p className={`${isError ? "text-white" : "text-black"} text-xs py-1`}>

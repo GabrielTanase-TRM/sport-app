@@ -36,7 +36,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           {leftIcon && (
             <div
               className={`absolute left-0 top-0 h-42px w-42px p-2 flex items-center border-2 border-r-0 bg-turquoise rounded-l-md
-            ${hasError ? "border-redWarning" : "border-turquoise"}`}
+            ${hasError ? "border-redError" : "border-turquoise"}`}
             >
               {leftIcon}
             </div>
@@ -44,7 +44,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           <input
             className={`w-full outline-none px-2 py-2.5 text-base leading-4 rounded-md border-2 min-w-250px ${
               hasError
-                ? "border-redWarning focus:border-redWarning"
+                ? "border-redError focus:border-redError"
                 : "border-gray-300 bg-gray-300 dark:border-darkSecondaryBackground dark:bg-darkSecondaryBackground  focus:border-turquoise"
             } 
             ${paddingByIconsNumber()}
@@ -78,7 +78,7 @@ export const TextInput: React.FC<TextInputProps> = ({
           )}
         </div>
         {hasError && (
-          <div className="absolute left-1 bottom-0 w-full text-redWarning text-xxs">
+          <div className="absolute left-1 bottom-0 w-full text-redError text-xxs">
             {errorMessage}
           </div>
         )}

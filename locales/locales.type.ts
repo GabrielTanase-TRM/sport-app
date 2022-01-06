@@ -18,4 +18,5 @@ export type Locales = {
   validationPassword: string;
   validationRePassword: string;
   logoutSuccessfullyMessage: string;
+  contactButton: string;
 };

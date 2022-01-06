@@ -20,7 +20,7 @@ const Homepage = () => {
       </div>
       {user && <p className="mb-2">Hello {user.email}</p>}
       {user && <p className="mb-2"> Trainer ? {String(user.isTrainer)}</p>}
-      <div className="absolute top-4 right-4 text-redWarning">
+      <div className="absolute top-4 right-4 text-redError">
         {isLoggedIn ? "LOGGED IN" : "NOT LOGGED IN"}
       </div>
     </div>

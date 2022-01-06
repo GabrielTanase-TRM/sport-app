@@ -1,29 +1,31 @@
 import "../styles/globals.css";
 import React, { useEffect, useState } from "react";
 
-import { Provider } from "react-redux";
+import Head from "next/head";
 import App, { AppContext } from "next/app";
+import { ThemeProvider } from "next-themes";
+
+import { Provider } from "react-redux";
 import { initializeStore } from "../redux";
 
-import { ThemeProvider } from "next-themes";
+import useCookie from "../shared/hooks/useCookie";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import Layout from "../components/Layout";
+
 import { MyAppProps } from "../shared/shared.interface";
 import { BASE_URL } from "../services/service.const";
-import Head from "next/head";
-import { useLocalStorage } from "../shared/hooks/useLocalStorage";
 import { BRANDING_NAME } from "../shared/shared.const";
-import useCookie from "../shared/hooks/useCookie";
 
 const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [cookie, setCookie] = useCookie("sport-app-installed", false);
   const { initialReduxState } = pageProps;
   const reduxStore = initializeStore(initialReduxState);
-  const queryClient = new QueryClient();
+  // const queryClient = new QueryClient();
 
-  const [cookie, setCookie] = useCookie("sport-app-installed", false);
+  // Handle PWA installation process
   useEffect(() => {
     if (!cookie) {
       window.addEventListener("beforeinstallprompt", (e) => {
@@ -31,6 +33,7 @@ const MyApp: React.FC<MyAppProps> = ({ Component, pageProps }) => {
         setDeferredPrompt(e);
       });
     }
+
     window.addEventListener("appinstalled", (e) => {
       // Set sport-app-installed cookie [true] for 10 years
       setCookie(true, 2038);

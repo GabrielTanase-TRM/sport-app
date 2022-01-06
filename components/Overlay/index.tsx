@@ -9,7 +9,7 @@ const Overlay: React.FC<OverlayProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`bg-overlay z-20 absolute inset-0 ${`bg-opacity-[${
+      className={`bg-overlay z-40 absolute inset-0 ${`bg-opacity-[${
         opacity * 100
       }]`}`}
     >

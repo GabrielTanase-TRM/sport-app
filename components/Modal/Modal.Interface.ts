@@ -4,4 +4,5 @@ export interface ModalProps {
   firstName: string;
   lastName: string;
   avatar: string;
+  enableUploadFunctionality: boolean;
 }

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { GetServerSidePropsContext } from "next";
-import { useDispatch, useSelector } from "react-redux";
+import Router from "next/router";
+import { useSelector } from "react-redux";
 import { getUser } from "../../../redux/selectors";
 
 import { PagePropsType, User } from "../../../shared/shared.interface";
 
-import { ProfileHeader } from "../../../components/Profile";
-import { AvatarUploadModal } from "../../../components/Modal/AvatarUpload";
-import { setBadgeNotification } from "../../../redux/slices/badgeNotification.slice";
+import { ProfileHeader } from "../../../components/Profile/ProfileHeader";
+
 import { BASE_URL } from "../../../services/service.const";
+import { Paths } from "../../../shared/paths.const";
+import ProfileBody from "../../../components/Profile/ProfileBody";
 
 export interface UserProfileProps extends PagePropsType {
   currentUser: User;
@@ -16,55 +18,14 @@ export interface UserProfileProps extends PagePropsType {
 
 const UserProfile: React.FC<UserProfileProps> = (props) => {
   const user = useSelector(getUser);
-  const dispatch = useDispatch();
+
   const isOwner = user.id === props.currentUser.id;
   const currentUser = isOwner ? user : props.currentUser;
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
-  const setIt = () => {
-    dispatch(
-      setBadgeNotification({
-        message:
-          " Test test Test Test test Test test Testtest Testtest Testtest Test",
-        isError: false,
-        secondDuration: 3,
-      })
-    );
-  };
 
   return (
     <div className="w-full h-screen relative ">
-      <ProfileHeader
-        firstName={currentUser.firstName}
-        lastName={currentUser.lastName}
-        avatar={currentUser.avatar}
-        testimonial={currentUser.testimonials}
-        openModal={openModal}
-      />
-      <button onClick={() => setIt()}>stit</button>
-      <div>
-        <div>Name: {currentUser?.firstName}</div>
-        <div>Surname: {currentUser?.lastName}</div>
-        <div>Trainer?: {currentUser?.isTrainer?.toString()}</div>
-        <div>isOwner?: {isOwner.toString()}</div>
-      </div>
-      {showModal && (
-        <AvatarUploadModal
-          closeModal={closeModal}
-          id={currentUser.id}
-          firstName={currentUser.firstName}
-          lastName={currentUser.lastName}
-          avatar={currentUser.avatar}
-        />
-      )}
+      <ProfileHeader currentUser={currentUser} isOwner={isOwner} />
+      <ProfileBody currentUser={currentUser} isOwner={isOwner} />
     </div>
   );
 };
@@ -81,19 +42,16 @@ export const getServerSideProps = async (
   });
   if (request.status === 401 && !context.req) {
     // Unauthenticated on client side, manipulate router
-    return {
-      user: null,
-    };
+    Router.replace(Paths.Authentication.path);
+    return {};
   }
 
   if (request.status === 401 && context.req) {
     // Unauthenticated on server side, manipulate context res
     context.res.writeHead(302, {
-      Location: `${BASE_URL}authentication`,
+      Location: Paths.Authentication.path,
     });
-    return {
-      user: null,
-    };
+    return {};
   }
 
   const response = await request.json();

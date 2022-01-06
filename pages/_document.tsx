@@ -4,6 +4,33 @@ import { BRANDING_NAME } from "../shared/shared.const";
 
 const APP_DESCRIPTION: string = "Smart application fort sportive society";
 
+const fontsBasePath = "/fonts/";
+const fontsURL = [
+  "Inter/Inter-Thin.ttf",
+  "Inter/Inter-Regular.ttf",
+  "Inter/Inter-Medium.ttf",
+  "Inter/Inter-SemiBold.ttf",
+  "Inter/Inter-Bold.ttf",
+  "Inter/Inter-ExtraBold.ttf",
+  "Playfair_Display/PlayfairDisplay-Regular.ttf",
+  "Playfair_Display/PlayfairDisplay-Medium.ttf",
+  "Playfair_Display/PlayfairDisplay-SemiBold.ttf",
+  "Playfair_Display/PlayfairDisplay-Bold.ttf",
+  "Playfair_Display/PlayfairDisplay-ExtraBold.ttf",
+  "GermaniaOne-Regular.ttf",
+];
+
+const allFontsLink = () =>
+  fontsURL.map((fontPath, i) => (
+    <link
+      key={i}
+      rel="preload"
+      href={fontsBasePath + fontPath}
+      as="font"
+      crossOrigin="anonymous"
+    />
+  ));
+
 class MyDocument extends Document {
   render() {
     return (
@@ -83,8 +110,9 @@ class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff"></meta>
           <meta name="application-name" content={BRANDING_NAME} />
           <meta name="description" content={APP_DESCRIPTION} />
+          {allFontsLink()}
         </Head>
-        <body className="bg-lightBackground text-black dark:text-primary dark:bg-darkBackground">
+        <body className="bg-lightBackground text-primaryText dark:text-primary dark:bg-darkBackground font-primary">
           <Main />
           <NextScript />
         </body>

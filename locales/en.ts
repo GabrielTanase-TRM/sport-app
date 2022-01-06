@@ -20,4 +20,5 @@ export const en: Locales = {
   validationPassword: "Password should have one uppercase and one number.",
   validationRePassword: "Password don't match.",
   logoutSuccessfullyMessage: "Logout successfully.",
+  contactButton: "Contact",
 };

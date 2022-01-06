@@ -18,14 +18,16 @@ import useUploadAvatar from "../../shared/hooks/useUploadAvatar";
 import { updateAvatar } from "../../services/user";
 import { setUser } from "../../redux/slices/user.slice";
 import { useTranslation } from "../../shared/hooks/useTranslation";
+import Overlay from "../Overlay";
 
 const { IoClose } = icon;
 
-export const AvatarUploadModal: React.FC<ModalProps> = ({
+export const AvatarModal: React.FC<ModalProps> = ({
   id,
   closeModal,
   firstName,
   avatar,
+  enableUploadFunctionality,
 }) => {
   const [avatarPreview, setAvatarPreview] = useState<string>(avatar);
   const [uploadedImage, setUploadedImage] = useState<any>(null);
@@ -57,20 +59,30 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div
-      className="
-    absolute inset-0 w-full h-full flex justify-center items-center"
-    >
+    <div className="absolute inset-0 w-full h-full flex justify-center items-center">
+      <Overlay onClick={closeModal} />
       <div
-        onClick={closeModal}
-        className="absolute inset-0 bg-overlay w-full h-full"
-      />
-      <div className="relative z-10 w-10/12 h-2/6 max-w-xs backgroundColor rounded-lg dark:shadow-darkMDAllSides shadow-lightMDAllSides flex flex-col justify-between items-center p-4">
+        className={`relative z-50 w-10/12 backgroundColor rounded-lg dark:shadow-darkMDAllSides shadow-lightMDAllSides flex flex-col justify-between items-center p-4 min-h-[265px] max-h-[310px] ${
+          enableUploadFunctionality
+            ? "h-2/6 w-3/4 max-w-[17rem]"
+            : "max-w-xs h-3/5 lg:h-3/4 "
+        }`}
+      >
         <button onClick={closeModal} className="absolute right-2 top-2">
           <IoClose size={20} className="text-gray-300 hover:text-turquoise" />
         </button>
-        <div className="w-full h-2/3 flex items-center justify-center">
-          <div className="w-32 h-32">
+        <div
+          className={`w-full ${
+            enableUploadFunctionality
+              ? "h-2/3 flex items-center justify-center"
+              : "h-full p-3"
+          }`}
+        >
+          <div
+            className={`${
+              enableUploadFunctionality ? "w-44 h-44" : "w-full h-full relative"
+            }`}
+          >
             {validation.isHexColor.test(avatarPreview) ||
             avatarPreview === "" ? (
               <div
@@ -81,47 +93,51 @@ export const AvatarUploadModal: React.FC<ModalProps> = ({
               </div>
             ) : (
               <Image
-                className="object-cover rounded-full"
+                className={
+                  enableUploadFunctionality ? "rounded-full" : "rounded-lg"
+                }
                 src={avatarPreview}
                 width={"100%"}
                 height={"100%"}
-                layout="responsive"
+                layout={enableUploadFunctionality ? "responsive" : "fill"}
                 objectFit="cover"
                 alt={translate.profilePicture}
               />
             )}
           </div>
         </div>
-        <div className="w-full h-1/3">
-          <div className="w-full h-1/2 flex justify-end">
-            {uploadProgress !== 0 && (
-              <ProgressCircle
-                dimension={40}
-                strokeWidth={4}
-                value={uploadProgress}
-                numberSize={11}
-                percentSize={8}
-              />
-            )}
-          </div>
-          <div className="flex w-full h-1/2">
-            <div className="relative h-full w-2/3">
-              <FileInputButton
-                label={translate.chooseAvatar}
-                acceptedFileTypes="image/png, image/jpeg, image/jpg"
-                onChange={onChange}
-                uploadFileName="avatar"
-              />
+        {enableUploadFunctionality && (
+          <div className="w-full h-1/3">
+            <div className="w-full h-1/2 flex justify-end">
+              {uploadProgress !== 0 && (
+                <ProgressCircle
+                  dimension={40}
+                  strokeWidth={4}
+                  value={uploadProgress}
+                  numberSize={11}
+                  percentSize={8}
+                />
+              )}
             </div>
-            <div className="w-1/3 flex justify-end items-end">
-              <Button
-                disabled={isNil(uploadedImage)}
-                label={translate.save}
-                onClick={onSave}
-              />
+            <div className="flex w-full h-1/2">
+              <div className="relative h-full w-2/3">
+                <FileInputButton
+                  label={translate.chooseAvatar}
+                  acceptedFileTypes="image/png, image/jpeg, image/jpg"
+                  onChange={onChange}
+                  uploadFileName="avatar"
+                />
+              </div>
+              <div className="w-1/3 flex justify-end items-end">
+                <Button
+                  disabled={isNil(uploadedImage)}
+                  label={translate.save}
+                  onClick={onSave}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

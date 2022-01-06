@@ -11,6 +11,8 @@ import { FiLogIn } from "react-icons/fi";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
+import { GiRank1 } from "react-icons/gi";
+import { TiWarning } from "react-icons/ti";
 
 export const icon = {
   BsSuitHeartFill,
@@ -27,4 +29,6 @@ export const icon = {
   FiLogOut,
   IoClose,
   BsArrowDownCircle,
+  GiRank1,
+  TiWarning,
 };

@@ -24,6 +24,11 @@ module.exports = {
         xxs: "10px",
         xxxl: "52px",
       },
+      fontFamily: {
+        primary: "Inter",
+        playfair: "PlayfairDisplay",
+        germania: "GermaniaOne",
+      },
       inset: {
         "2px": "2px",
       },
@@ -55,11 +60,16 @@ module.exports = {
       colors: {
         overlay: "rgba(0,0,0, .5)",
         primary: "#7EBDC2",
+        primaryText: "rgba(0,0,0, .87)",
+        helperText: "rgba(0,0,0, .60)",
+        disabled: "rgba(0,0,0, .38)",
+        darkDisabled: "rgba(255,255,255, .38)",
         secondary: "#0D1B2A",
         white: "#FFF",
         divider: "#F6F6F6",
         black: "#000",
-        redWarning: "#b1000b",
+        redError: "#B00020", // old #b1000b
+        yellowWarning: "#eed202",
         greenSuccess: "#39DB80",
         badgeText: "#333333",
         turquoise: "#7ebdc2",
@@ -72,7 +82,6 @@ module.exports = {
         darkMDAllSides: "0px 0px 7px -3px #7188ac",
         lightMDAllSides: "0px 0px 7px -3px #000",
       },
-      fontFamily: {},
       transitionDuration: {
         inputSwitch: "0.25s -0.1s",
       },
