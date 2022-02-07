@@ -33,7 +33,7 @@ const Avatar: React.FC<AvatarProps> = ({
 
   return (
     <div
-      className={`relative w-36 min-w-36 h-36 min-h-36 border-2 border-white border-dashed shadow-md rounded-full p-2.5 ${containerClassName}`}
+      className={`relative w-36 min-w-36 h-36 min-h-36 border-2 border-darkPrimaryText border-dashed shadow-md rounded-full p-2.5 ${containerClassName}`}
     >
       <div className="w-full h-full rounded-full overflow-hidden">
         {validation.isHexColor.test(avatar) ? (
@@ -74,7 +74,7 @@ const Avatar: React.FC<AvatarProps> = ({
             toggleAvatarModal && editable
               ? "-right-2 bottom-9"
               : "right-1 bottom-2"
-          } shadow-md rounded-full p-1 transition-all hover:scale-105 text-black dark:text-white`}
+          } shadow-md rounded-full p-1 transition-all hover:scale-105 text-black dark:text-darkPrimaryText`}
         >
           <GiRank1 size={18} />
         </button>

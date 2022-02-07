@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "next/router";
 
 import { Endpoint } from "../../services/services.enum";
-import { postAuth } from "../../services/user";
+import { postAuth } from "../../services/auth";
 
 import { TextInput } from "../TextInput";
 import LoadingOverlay from "../LoadingOverlay";
@@ -76,8 +76,8 @@ export const Authentication = () => {
       })
       .catch((error) => {
         setServerError(error?.response?.data?.message);
-      })
-      .finally(() => setLoading(false));
+        setLoading(false);
+      });
   };
   const formHasErrors = () => trigger();
   const togglePasswordVisibility = () => setShowPassword(!showPassword);

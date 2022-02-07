@@ -28,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ deferredPrompt, children }) => {
   );
 
   return (
-    <div className="flex w-screen h-screen backgroundColor text-turquoise">
+    <div className="flex w-screen h-screen backgroundColo">
       <Navigation deferredPrompt={deferredPrompt} />
       <main className="w-full h-full">
         {!isEmpty(badgeNotifications) && renderBadgesError(badgeNotifications)}

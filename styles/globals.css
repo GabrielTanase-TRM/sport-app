@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 @import url("./fontFaces.css");
 
 /* Custom class for tailwind */
@@ -23,12 +22,12 @@
 input[type="file"] {
   display: none;
 }
-/* Hide PWA custom install button  */
+/* Hide PWA custom install button 
 @media all and (display-mode: standalone) {
   .installButton {
     display: none;
   }
-}
+} */
 
 /* Hamburger button animation */
 .ham {

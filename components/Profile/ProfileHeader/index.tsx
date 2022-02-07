@@ -9,7 +9,7 @@ import { setBadgeNotification } from "../../../redux/slices/badgeNotification.sl
 
 import { useTranslation } from "../../../shared/hooks/useTranslation";
 
-import { logout } from "../../../services/user";
+import { logout } from "../../../services/auth";
 
 import {
   ProfileHeaderProps,
@@ -95,6 +95,7 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
           {!isOwner && (
             <div className="absolute right-3 bottom-9">
               <Button
+                customButtonClass="tracking-wider"
                 label={translate.contactButton}
                 onClick={onClickContact}
               />

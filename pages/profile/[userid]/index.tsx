@@ -23,7 +23,7 @@ const UserProfile: React.FC<UserProfileProps> = (props) => {
   const currentUser = isOwner ? user : props.currentUser;
 
   return (
-    <div className="w-full h-screen relative ">
+    <div className="w-full h-screen relative">
       <ProfileHeader currentUser={currentUser} isOwner={isOwner} />
       <ProfileBody currentUser={currentUser} isOwner={isOwner} />
     </div>

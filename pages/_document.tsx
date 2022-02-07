@@ -112,7 +112,7 @@ class MyDocument extends Document {
           <meta name="description" content={APP_DESCRIPTION} />
           {allFontsLink()}
         </Head>
-        <body className="bg-lightBackground text-primaryText dark:text-primary dark:bg-darkBackground font-primary">
+        <body className="bg-lightBackground text-primaryText dark:text-darkPrimaryText dark:bg-darkBackground font-primary">
           <Main />
           <NextScript />
         </body>

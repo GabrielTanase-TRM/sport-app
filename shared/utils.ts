@@ -8,3 +8,16 @@ export const useRouterRefresh = () => {
 
   return router.replace(asPath);
 };
+
+export const getImageDimensionByAspectRatio = (
+  width: number,
+  image: {
+    width: number;
+    height: number;
+  }
+) => {
+  const imageHeight = image.height;
+  const imageWidth = image.width;
+
+  return { height: (width * imageHeight) / imageWidth, width };
+};

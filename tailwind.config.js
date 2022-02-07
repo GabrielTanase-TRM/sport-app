@@ -34,6 +34,7 @@ module.exports = {
       },
       padding: {
         2.5: "10px",
+        "2px": "2px",
       },
       height: {
         "42px": "42px",
@@ -59,8 +60,13 @@ module.exports = {
       },
       colors: {
         overlay: "rgba(0,0,0, .5)",
+        lightBackground: "#F1F1F1",
+        lightSecondaryBackground: "#ddd",
+        darkBackground: "#0D1B2A",
+        darkSecondaryBackground: "#192C41",
         primary: "#7EBDC2",
         primaryText: "rgba(0,0,0, .87)",
+        darkPrimaryText: "rgba(250,250,250, .87)",
         helperText: "rgba(0,0,0, .60)",
         disabled: "rgba(0,0,0, .38)",
         darkDisabled: "rgba(255,255,255, .38)",
@@ -73,9 +79,6 @@ module.exports = {
         greenSuccess: "#39DB80",
         badgeText: "#333333",
         turquoise: "#7ebdc2",
-        lightBackground: "#F1F1F1",
-        darkBackground: "#0D1B2A",
-        darkSecondaryBackground: "#192C41",
         grayBlue: "#7188ac",
       },
       boxShadow: {

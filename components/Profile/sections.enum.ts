@@ -1,0 +1,8 @@
+export enum SectionType {
+  INTRODUCING = "INTRODUCING",
+  EDUCATION = "EDUCATION",
+  WORK = "WORK",
+  GALLERY = "GALLERY",
+  PLAN = "PLAN",
+  EVENTS = "EVENTS",
+}

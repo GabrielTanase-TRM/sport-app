@@ -51,6 +51,7 @@ model Users {
   disabled Boolean? @default(true)
   isTrainer Boolean
   deleted Boolean? @default(false)
+  // verifyToken String? @default(), //cuid + new Date() + 3-5 days
   // data Data @relation(fields: [dataId], references: [id])
   // dataId String @db.ObjectId()
   avatar String
